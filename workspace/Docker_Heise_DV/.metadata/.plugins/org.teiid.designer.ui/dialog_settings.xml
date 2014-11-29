@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.teiid.designer.jdbc.ui.wizards.JdbcImportWizard">
+		<item value="false" key="schema"/>
+		<item value="false" key="Procedures"/>
+		<item value="false" key="Indexes"/>
+		<item value="true" key="Foreign Keys"/>
+		<item value="false" key="Unique Only"/>
+		<item value="UNQUALIFIED" key="&lt;Missing message for key &quot;JdbcImportOptionsPage.sourceObjectNamesGroup&quot; in: org.teiid.designer.ui.i18n&gt;"/>
+		<item value="true" key="Include Incomplete FKs"/>
+		<item value="false" key="Approximations Allowed"/>
+		<item value="NONE" key="&lt;Missing message for key &quot;JdbcImportOptionsPage.modelObjectNamesGroup&quot; in: org.teiid.designer.ui.i18n&gt;"/>
+		<item value="false" key="Include Cost Statistics (will increase time for large imports)"/>
+		<item value="true" key="database"/>
+		<list key="Table Types">
+			<item value="FOREIGN TABLE"/>
+			<item value="INDEX"/>
+			<item value="MATERIALIZED VIEW"/>
+			<item value="SEQUENCE"/>
+			<item value="SYSTEM INDEX"/>
+			<item value="SYSTEM TABLE"/>
+			<item value="SYSTEM TOAST INDEX"/>
+			<item value="SYSTEM TOAST TABLE"/>
+			<item value="SYSTEM VIEW"/>
+			<item value="TABLE"/>
+			<item value="TEMPORARY INDEX"/>
+			<item value="TEMPORARY SEQUENCE"/>
+			<item value="TEMPORARY TABLE"/>
+			<item value="TEMPORARY VIEW"/>
+			<item value="TYPE"/>
+			<item value="VIEW"/>
+		</list>
+	</section>
+	<section name="org.teiid.designer.ui.wizards.NewModelWizard">
+		<item value="514" key="height"/>
+		<item value="582" key="width"/>
+	</section>
+	<section name="org.teiid.designer.ui.wizards.GenerateXsdWizard">
+	</section>
+	<section name="org.teiid.designer.vdb.ui.wizards.NewVdbWizard">
+	</section>
+</section>

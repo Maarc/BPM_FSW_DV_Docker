@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<servers>
+  <server default="true" host="localhost" parentServerId="JBoss EAP 6.1+ Runtime Server1415454803190" version="8.4.1-redhat-7">
+    <admin password="VE9LIyMhVUZBeGFlX0RxY05nVk1heGdidVZzdTQ0MHY1NG93UUVMdHJIbmVsMVVGM0tmcXFLbnBabFE2UWFlMmYtbUhDM2xJVDBaWUtVUVBCMV9PV2dha1hvd2c=" port="9999" secure="false" user="admin"/>
+    <jdbc jdbcport="31000" jdbcsecure="false" jdbcuser="psteiner"/>
+  </server>
+</servers>

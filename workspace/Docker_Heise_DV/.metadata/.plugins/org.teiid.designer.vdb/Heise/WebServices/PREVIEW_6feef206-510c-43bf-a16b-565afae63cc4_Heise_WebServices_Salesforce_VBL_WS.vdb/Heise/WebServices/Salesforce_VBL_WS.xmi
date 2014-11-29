@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:diagram="http://www.metamatrix.com/metamodels/Diagram" xmlns:mmcore="http://www.metamatrix.com/metamodels/Core" xmlns:mmws="http://www.metamatrix.com/metamodels/WebService" xmlns:transformation="http://www.metamatrix.com/metamodels/Transformation">
+  <mmcore:ModelAnnotation xmi:uuid="mmuuid:79e8654c-ddb4-43c2-b5c7-c5681d747fa3" primaryMetamodelUri="http://www.metamatrix.com/metamodels/WebService" modelType="VIRTUAL" ProducerName="Teiid Designer" ProducerVersion="8.3.4.Final-v20140912-1304-B264">
+    <modelImports xmi:uuid="mmuuid:c8163272-752e-4c06-8d74-d6a325704180" name="Salesforce_VBL_Input" modelLocation="Salesforce_VBL_Input.xsd" modelType="TYPE" primaryMetamodelUri="http://www.eclipse.org/xsd/2002/XSD"/>
+    <modelImports xmi:uuid="mmuuid:35345496-5a27-469d-8c76-6a42af0453cd" name="Salesforce_VBL_Output" modelLocation="Salesforce_VBL_Output.xsd" modelType="TYPE" primaryMetamodelUri="http://www.eclipse.org/xsd/2002/XSD"/>
+    <modelImports xmi:uuid="mmuuid:d9dacdb8-217f-4788-94d8-fbbb484dd812" name="Salesforce_VBL_Output_View" modelLocation="Salesforce_VBL_Output_View.xmi" uuid="mmuuid:3878e8bb-48b6-48c4-8481-24e4bd41add6" modelType="VIRTUAL" primaryMetamodelUri="http://www.metamatrix.com/metamodels/XmlDocument"/>
+  </mmcore:ModelAnnotation>
+  <mmws:Interface xmi:uuid="mmuuid:bd04717a-0a2c-4fd2-91c0-efa59513d9f1" name="Salesforce_VBL_Contact">
+    <operations xmi:uuid="mmuuid:7ad9a5a9-2aba-4b4a-abc2-3eec032399c3" name="getContact">
+      <input xmi:uuid="mmuuid:8af81c96-2388-474e-934e-0241e81b8d1f" name="Contact_InputMsg">
+        <contentElement href="Salesforce_VBL_Input.xsd#//Contact_Input;XSDElementDeclaration"/>
+      </input>
+      <output xmi:uuid="mmuuid:175f3ab0-5982-418c-974d-aead0bc9d203" name="Contact_OutputMsg">
+        <contentElement href="Salesforce_VBL_Output.xsd#//Contact_Output;XSDElementDeclaration"/>
+        <samples xmi:uuid="mmuuid:9c1acc37-a518-4f5b-8517-0e884010950f"/>
+        <xmlDocument href="Salesforce_VBL_Output_View.xmi#mmuuid/0b17543e-a449-4419-acc4-fd72fddc31c2"/>
+      </output>
+    </operations>
+  </mmws:Interface>
+  <transformation:TransformationContainer xmi:uuid="mmuuid:c8e47999-f3b2-4228-affc-2c7e262cd505">
+    <transformationMappings xsi:type="transformation:SqlTransformationMappingRoot" xmi:uuid="mmuuid:36cbfca5-378c-4c3b-97c9-1a0c48cb3b75" outputs="mmuuid/7ad9a5a9-2aba-4b4a-abc2-3eec032399c3" target="mmuuid/7ad9a5a9-2aba-4b4a-abc2-3eec032399c3">
+      <helper xsi:type="transformation:SqlTransformation" xmi:uuid="mmuuid:9d9464cb-8200-4c66-9f33-76d4a079502e">
+        <nested xsi:type="transformation:SqlTransformation" xmi:uuid="mmuuid:55a6f27e-7941-49eb-b305-ae36339eb669" selectSql="CREATE VIRTUAL PROCEDURE BEGIN DECLARE string VARIABLES.IN_ID;VARIABLES.IN_ID = xPathValue(Salesforce_VBL_WS.Salesforce_VBL_Contact.getContact.Contact_InputMsg, '/*:Contact_Input/*:Id');SELECT * FROM Salesforce_VBL_Output_View.Contact_OutputView WHERE  (Salesforce_VBL_Output_View.Contact_OutputView.Contact_Output.Contact_Output_Instance.Id = VARIABLES.IN_ID) ; END"/>
+      </helper>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:5dcd8083-42f5-4e38-ac38-4ab5d0c84c0f" outputs="mmuuid/9c1acc37-a518-4f5b-8517-0e884010950f"/>
+    </transformationMappings>
+  </transformation:TransformationContainer>
+  <diagram:DiagramContainer xmi:uuid="mmuuid:e73ea7c7-a704-4f58-8e76-0864b3fcf10f">
+    <diagram xmi:uuid="mmuuid:d8ab3166-119d-49fc-8e89-55008283d12e" type="packageDiagramType" target="mmuuid/79e8654c-ddb4-43c2-b5c7-c5681d747fa3">
+      <diagramEntity xmi:uuid="mmuuid:aee141ee-6087-4dbb-b70a-4e941527394c" modelObject="mmuuid/bd04717a-0a2c-4fd2-91c0-efa59513d9f1" xPosition="10" yPosition="10"/>
+    </diagram>
+  </diagram:DiagramContainer>
+</xmi:XMI>

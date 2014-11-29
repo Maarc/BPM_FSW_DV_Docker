@@ -244,7 +244,17 @@ start)
   case "$2" in
     jbds)
       echo "Starting ${DOCKER_IMAGE["JBDS:IMAGE_NAME"]}"
-      docker run -i -t -p ${DOCKER_IMAGE["JBDS:HTTP_PORT"]}:8080 -p ${DOCKER_IMAGE["JBDS:ADMIN_PORT"]}:9990 -e DISPLAY=unix$DISPLAY -e TERM=$TERM -v /home/psteiner/workspace:/tmp/workspace -v /tmp/.X11-unix:/tmp/.X11-unix --lxc-conf='lxc.cgroup.devices.allow = c 116:* rwm' --link postgres:postgres ${DOCKER_IMAGE["JBDS:IMAGE_NAME"]} /home/jboss/jbdevstudio/jbdevstudio-unity
+      WORKSPACE=`pwd`
+      WORKSPACE=$WORKSPACE"/workspace/Docker_Heise_DV"
+      # echo "Mapping workspace to <"$WORKSPACE">"
+
+      echo "---- remove this shit -----"
+      rm -rf /home/psteiner/workspace/Docker_Heise_DV
+      cp -R $WORKSPACE /home/psteiner/workspace/
+      WORKSPACE="/home/psteiner/workspace/Docker_Heise_DV"
+      echo "---- remove this shit -----"
+
+      docker run -i -t -p ${DOCKER_IMAGE["JBDS:HTTP_PORT"]}:8080 -p ${DOCKER_IMAGE["JBDS:ADMIN_PORT"]}:9990 -e DISPLAY=unix$DISPLAY -e TERM=$TERM -v $WORKSPACE:/tmp/workspace -v /tmp/.X11-unix:/tmp/.X11-unix --lxc-conf='lxc.cgroup.devices.allow = c 116:* rwm' --link postgres:postgres ${DOCKER_IMAGE["JBDS:IMAGE_NAME"]} /home/jboss/jbdevstudio/jbdevstudio-unity
      ;;
     all)
       echo "Starting ${DOCKER_IMAGE["HEISE_BPM:IMAGE_NAME"]}"

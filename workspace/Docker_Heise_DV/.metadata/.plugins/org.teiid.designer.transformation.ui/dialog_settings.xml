@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.teiid.designer.transformation.ui.reconciler.ReconcilerDialog">
+		<item value="840" key="shellWidth"/>
+		<item value="525" key="shellHeight"/>
+		<item value="262" key="shellY"/>
+		<item value="420" key="shellX"/>
+	</section>
+</section>
