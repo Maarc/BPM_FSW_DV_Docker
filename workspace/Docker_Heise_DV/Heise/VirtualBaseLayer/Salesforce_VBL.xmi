@@ -1090,7 +1090,7 @@
   <transformation:TransformationContainer xmi:uuid="mmuuid:4e895c60-fb1d-497b-ad98-f8e1286fe6dc">
     <transformationMappings xsi:type="transformation:SqlTransformationMappingRoot" xmi:uuid="mmuuid:d8d5c27c-3958-4e6a-9198-1e66f09b2980" outputs="mmuuid/931998b9-a33d-4055-b7ac-ca9d24a6a77b" target="mmuuid/931998b9-a33d-4055-b7ac-ca9d24a6a77b">
       <helper xsi:type="transformation:SqlTransformation" xmi:uuid="mmuuid:955cff01-fdbd-471c-b56b-58a1d6efec84">
-        <nested xsi:type="transformation:SqlTransformation" xmi:uuid="mmuuid:2fcd34b5-3e39-4d0e-9c58-d781804c3a60" selectSql="SELECT * FROM Salesforce_DS.Contact"/>
+        <nested xsi:type="transformation:SqlTransformation" xmi:uuid="mmuuid:2fcd34b5-3e39-4d0e-9c58-d781804c3a60" selectSql="SELECT&#xa;&#x9;&#x9;*&#xa;&#x9;FROM&#xa;&#x9;&#x9;Salesforce_DS.Contact&#xa;&#x9;WHERE&#xa;&#x9;&#x9;Salesforce_DS.Contact.IsDeleted = FALSE"/>
         <aliases xmi:uuid="mmuuid:abce2af3-4574-49c1-a797-371fcbab3401" alias="Contact">
           <aliasedObject href="../DataSources/Salesforce_DS.xmi#mmuuid/1e56cf40-c0a7-487d-8f55-de3df7d29eb1"/>
         </aliases>

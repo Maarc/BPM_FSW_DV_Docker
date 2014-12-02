@@ -4,9 +4,6 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
-*.war
-*.ear
 jboss-bpms-6.0.2.GA-redhat-5-deployable-eap6.x.zip
 jboss-bpms-6.0.3.GA-redhat-1-deployable-eap6.x.zip
 jboss-bpms-6.1.0.redhat-0-deployable-eap6.x.zip

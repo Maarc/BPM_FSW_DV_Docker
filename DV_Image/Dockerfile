@@ -70,7 +70,7 @@ USER root
 RUN echo "#!/bin/sh"
 RUN echo "echo JBoss Data Virtualization Start script" >> $HOME/run.sh
 RUN echo "service sshd start " >> $HOME/run.sh
-RUN echo "service mysqld start " >> $HOME/run.sh
+# RUN echo "service mysqld start " >> $HOME/run.sh
 RUN echo "runuser -l jboss -c '$HOME/dv/jboss-eap-6.1/bin/standalone.sh -c standalone.xml -b 0.0.0.0 -bmanagement 0.0.0.0'" >> $HOME/run.sh
 RUN chmod +x $HOME/run.sh
 

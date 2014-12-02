@@ -17,6 +17,7 @@ RUN yum -y update;yum clean all
 
 # Create the datasource in EAP
 RUN mkdir $INSTALLDIR/support
+RUN mkdir /tmp/workspace
 ADD config/standalone.xml $INSTALLDIR/support/standalone.xml
 RUN mv $INSTALLDIR/support/standalone.xml $INSTALLDIR/jboss-eap-6.1/standalone/configuration/standalone.xml
 RUN rm -rf $INSTALLDIR/support

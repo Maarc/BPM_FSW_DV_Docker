@@ -307,6 +307,20 @@
                 <resource-adapter id="mongodb">
                     <module slot="main" id="org.jboss.teiid.resource-adapter.mongodb"/>
                 </resource-adapter>
+                 <resource-adapter id="Salesforce_Driver">
+                    <module slot="main" id="org.jboss.teiid.resource-adapter.salesforce"/>
+                    <transaction-support>NoTransaction</transaction-support>
+                    <connection-definitions>
+                        <connection-definition class-name="org.teiid.resource.adapter.salesforce.SalesForceManagedConnectionFactory" jndi-name="java:/Salesforce_Driver" enabled="true" pool-name="Salesforce_Driver">
+                            <config-property name="password">
+                                change12_meEvEMMOZo9tDfxNZuyuCvrl7XK
+                            </config-property>
+                            <config-property name="username">
+                                patrick@steiner-buchholz.de
+                            </config-property>
+                        </connection-definition>
+                    </connection-definitions>
+                </resource-adapter>
             </resource-adapters>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:sar:1.0"/>
