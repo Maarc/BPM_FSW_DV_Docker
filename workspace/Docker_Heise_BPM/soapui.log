@@ -1,0 +1,45 @@
+19:43:20,760 INFO [com.eviware.soapui.impl.WorkspaceImpl] Loading workspace from [/tmp/workspace/default-soapui-workspace.xml]
+19:43:20,819 INFO [com.eviware.soapui.SoapUI] File [/SF-soapui-project.xml] does not exist, trying URL instead
+19:43:20,820 ERROR [com.eviware.soapui.SoapUI] An error occured [no protocol: SF-soapui-project.xml], see error log for details
+19:43:35,105 DEBUG [com.eviware.soapui.threads] SwtDialogs.confirm[Remove Project] -> runInUIThread
+19:43:35,108 DEBUG [com.eviware.soapui.threads] runInUIThread: syncExec com.eviware.x.impl.swt.SwtDialogs$1
+19:43:35,108 DEBUG [com.eviware.soapui.threads] SwtDialogs.confirm: run
+19:44:14,685 INFO [com.eviware.soapui.impl.wsdl.support.xsd.SchemaUtils] Added default schema from /com/eviware/soapui/resources/xsds/xop.xsd with targetNamespace http://www.w3.org/2004/08/xop/include
+19:44:14,781 INFO [com.eviware.soapui.impl.wsdl.support.xsd.SchemaUtils] Added default schema from /com/eviware/soapui/resources/xsds/XMLSchema.xsd with targetNamespace http://www.w3.org/2001/XMLSchema
+19:44:14,783 INFO [com.eviware.soapui.impl.wsdl.support.xsd.SchemaUtils] Added default schema from /com/eviware/soapui/resources/xsds/xml.xsd with targetNamespace http://www.w3.org/XML/1998/namespace
+19:44:14,783 INFO [com.eviware.soapui.impl.wsdl.support.xsd.SchemaUtils] Added default schema from /com/eviware/soapui/resources/xsds/swaref.xsd with targetNamespace http://ws-i.org/profiles/basic/1.1/xsd
+19:44:14,784 INFO [com.eviware.soapui.impl.wsdl.support.xsd.SchemaUtils] Added default schema from /com/eviware/soapui/resources/xsds/xmime200505.xsd with targetNamespace http://www.w3.org/2005/05/xmlmime
+19:44:14,785 INFO [com.eviware.soapui.impl.wsdl.support.xsd.SchemaUtils] Added default schema from /com/eviware/soapui/resources/xsds/xmime200411.xsd with targetNamespace http://www.w3.org/2004/11/xmlmime
+19:44:14,786 INFO [com.eviware.soapui.impl.wsdl.support.xsd.SchemaUtils] Added default schema from /com/eviware/soapui/resources/xsds/soapEnvelope.xsd with targetNamespace http://schemas.xmlsoap.org/soap/envelope/
+19:44:14,791 INFO [com.eviware.soapui.impl.wsdl.support.xsd.SchemaUtils] Added default schema from /com/eviware/soapui/resources/xsds/soapEncoding.xsd with targetNamespace http://schemas.xmlsoap.org/soap/encoding/
+19:44:14,793 INFO [com.eviware.soapui.impl.wsdl.support.xsd.SchemaUtils] Added default schema from /com/eviware/soapui/resources/xsds/soapEnvelope12.xsd with targetNamespace http://www.w3.org/2003/05/soap-envelope
+19:44:14,797 INFO [com.eviware.soapui.impl.wsdl.support.xsd.SchemaUtils] Added default schema from /com/eviware/soapui/resources/xsds/soapEncoding12.xsd with targetNamespace http://www.w3.org/2003/05/soap-encoding
+19:44:14,798 DEBUG [com.eviware.soapui.impl.wsdl.support.wsdl.WsdlLoader] Getting wsdl component from [http://datavirt:8080/Salesforce_VDB/Salesforce_VBL_Contact?wsdl]
+19:44:14,985 DEBUG [com.eviware.soapui.impl.wsdl.support.wsdl.WsdlLoader] Getting wsdl component from [http://datavirt:8080/Salesforce_VDB/Salesforce_VBL_Contact?xsd=Salesforce_VBL_Input.xsd]
+19:44:14,993 DEBUG [com.eviware.soapui.impl.wsdl.support.wsdl.WsdlLoader] Getting wsdl component from [http://datavirt:8080/Salesforce_VDB/Salesforce_VBL_Contact?xsd=Salesforce_VBL_Output.xsd]
+19:44:15,007 DEBUG [com.eviware.soapui.impl.wsdl.support.wsdl.WsdlLoader] Getting wsdl component from [http://datavirt:8080/Salesforce_VDB/Salesforce_VBL_Contact?xsd=builtInDataTypes.xsd]
+19:44:15,093 DEBUG [com.eviware.soapui.impl.support.definition.support.AbstractDefinitionContext] Loading Definition...
+19:44:15,101 DEBUG [com.eviware.soapui.impl.wsdl.support.wsdl.WsdlInterfaceDefinition] Loading WSDL: http://datavirt:8080/Salesforce_VDB/Salesforce_VBL_Contact?wsdl
+19:44:15,101 DEBUG [com.eviware.soapui.impl.wsdl.support.wsdl.AbstractWsdlDefinitionLoader] Returning baseInputSource [http://datavirt:8080/Salesforce_VDB/Salesforce_VBL_Contact?wsdl]
+19:44:15,130 DEBUG [com.eviware.soapui.impl.wsdl.support.wsdl.AbstractWsdlDefinitionLoader] Returning latest import URI [http://datavirt:8080/Salesforce_VDB/Salesforce_VBL_Contact?xsd=Salesforce_VBL_Input.xsd]
+19:44:15,135 DEBUG [com.eviware.soapui.impl.wsdl.support.wsdl.AbstractWsdlDefinitionLoader] Returning latest import URI [http://datavirt:8080/Salesforce_VDB/Salesforce_VBL_Contact?xsd=Salesforce_VBL_Output.xsd]
+19:44:15,150 DEBUG [com.eviware.soapui.impl.wsdl.support.wsdl.AbstractWsdlDefinitionLoader] Returning latest import URI [http://datavirt:8080/Salesforce_VDB/Salesforce_VBL_Contact?xsd=builtInDataTypes.xsd]
+19:44:15,184 INFO [com.eviware.soapui.impl.wsdl.support.xsd.SchemaUtils] Loading schema types from [http://datavirt:8080/Salesforce_VDB/Salesforce_VBL_Contact?wsdl]
+19:44:15,184 INFO [com.eviware.soapui.impl.wsdl.support.xsd.SchemaUtils] Getting schema http://datavirt:8080/Salesforce_VDB/Salesforce_VBL_Contact?wsdl
+19:44:15,188 INFO [com.eviware.soapui.impl.wsdl.support.xsd.SchemaUtils] Getting schema http://datavirt:8080/Salesforce_VDB/Salesforce_VBL_Contact?xsd=Salesforce_VBL_Input.xsd
+19:44:15,189 INFO [com.eviware.soapui.impl.wsdl.support.xsd.SchemaUtils] Getting schema http://datavirt:8080/Salesforce_VDB/Salesforce_VBL_Contact?xsd=Salesforce_VBL_Output.xsd
+19:44:15,190 INFO [com.eviware.soapui.impl.wsdl.support.xsd.SchemaUtils] Getting schema http://datavirt:8080/Salesforce_VDB/Salesforce_VBL_Contact?xsd=builtInDataTypes.xsd
+19:44:15,424 DEBUG [com.eviware.soapui.impl.support.definition.support.AbstractDefinitionContext] Loaded Definition: ok
+19:44:15,439 INFO [com.eviware.soapui.impl.wsdl.support.wsdl.WsdlImporter] Finding importer for {http://teiid.org}Salesforce_VBL_Contact
+19:44:15,442 INFO [com.eviware.soapui.impl.wsdl.support.wsdl.WsdlImporter] Importing binding {http://teiid.org}Salesforce_VBL_Contact
+19:44:15,457 INFO [com.eviware.soapui.impl.wsdl.support.soap.Soap11HttpBindingImporter] importing endpoint http://datavirt:8080/Salesforce_VDB/Salesforce_VBL_Contact
+19:44:15,462 INFO [com.eviware.soapui.impl.wsdl.support.soap.Soap11HttpBindingImporter] importing operation getContact
+19:44:33,127 DEBUG [com.eviware.soapui.threads] runInUIThreadAsync: asyncExec com.eviware.soapui.eclipse.EclipseSoapUIDesktop$ModelItemDesktopPanelOpener
+19:44:54,181 INFO [com.eviware.soapui.impl.support.panels.AbstractHttpRequestDesktopPanel] Got response for [Salesforce_VBL_Contact.getContact:Request 1] in 3478ms (1754 bytes)
+19:47:17,904 INFO [com.eviware.soapui.impl.support.panels.AbstractHttpRequestDesktopPanel] Got response for [Salesforce_VBL_Contact.getContact:Request 1] in 230ms (1754 bytes)
+19:47:22,627 INFO [com.eviware.soapui.impl.support.panels.AbstractHttpRequestDesktopPanel] Got response for [Salesforce_VBL_Contact.getContact:Request 1] in 133ms (1754 bytes)
+19:48:18,693 INFO [com.eviware.soapui.impl.support.panels.AbstractHttpRequestDesktopPanel] Got response for [Salesforce_VBL_Contact.getContact:Request 1] in 344ms (1759 bytes)
+19:50:45,395 DEBUG [com.eviware.soapui.threads] SwtDialogs.confirm[Save Project] -> runInUIThread
+19:50:45,395 DEBUG [com.eviware.soapui.threads] runInUIThread: syncExec com.eviware.x.impl.swt.SwtDialogs$1
+19:50:45,397 DEBUG [com.eviware.soapui.threads] SwtDialogs.confirm: run
+19:50:47,621 INFO [com.eviware.soapui.impl.WorkspaceImpl] Saved workspace to [/tmp/workspace/default-soapui-workspace.xml]

@@ -22,6 +22,7 @@ DOCKER_IMAGE["FSW:IMAGE_NAME"]="psteiner/fsw"
 DOCKER_IMAGE["FSW:ZIP"]="jboss-fsw-installer-6.0.0.GA-redhat-4.jar"
 DOCKER_IMAGE["FSW:URL"]="http://www.jboss.org/download-manager/file/jboss-fsw-6.0.0.GA.zip"
 
+
 DOCKER_IMAGE["DV:IMAGE_NAME"]="psteiner/datavirt"
 DOCKER_IMAGE["DV:ZIP"]="software/jboss-dv-installer-6.0.0.GA-redhat-4.jar"
 DOCKER_IMAGE["DV:URL"]="http://www.jboss.org/download-manager/file/jboss-dv-installer-6.0.0.GA-redhat-4.jar"
@@ -31,15 +32,27 @@ DOCKER_IMAGE["POSTGRES:IMAGE_NAME"]="psteiner/postgres"
 DOCKER_IMAGE["HEISE_BPM:IMAGE_NAME"]="psteiner/heise_bpm"
 DOCKER_IMAGE["HEISE_BPM:ZIP"]="postgresql-8.4-703.jdbc4.jar"
 DOCKER_IMAGE["HEISE_BPM:URL"]="http://jdbc.postgresql.org/download/postgresql-8.4-703.jdbc4.jar"
+DOCKER_IMAGE["HEISE_BPM:HTTP_PORT"]="49160"
+DOCKER_IMAGE["HEISE_BPM:ADMIN_PORT"]="49170"
 
 DOCKER_IMAGE["HEISE_FSW:IMAGE_NAME"]="psteiner/heise_fsw"
+DOCKER_IMAGE["HEISE_FSW:HTTP_PORT"]="49220"
+DOCKER_IMAGE["HEISE_FSW:ADMIN_PORT"]="49230"
 
 DOCKER_IMAGE["HEISE_DV:IMAGE_NAME"]="psteiner/heise_datavirt"
+DOCKER_IMAGE["HEISE_DV:HTTP_PORT"]="49200"
+DOCKER_IMAGE["HEISE_DV:ADMIN_PORT"]="49210"
 
-DOCKER_IMAGE["JBDS:IMAGE_NAME"]="psteiner/jbds"
-DOCKER_IMAGE["JBDS:ZIP"]="software/jbdevstudio-product-universal-7.1.1.GA-v20140314-2145-B688.jar"
-DOCKER_IMAGE["JBDS:HTTP_PORT"]="49200"
-DOCKER_IMAGE["JBDS:ADMIN_PORT"]="49210"
+DOCKER_IMAGE["DV_JBDS:IMAGE_NAME"]="psteiner/dv_jbds"
+DOCKER_IMAGE["DV_JBDS:ZIP"]="software/jbdevstudio-product-universal-7.1.1.GA-v20140314-2145-B688.jar"
+DOCKER_IMAGE["DV_JBDS:HTTP_PORT"]="49200"
+DOCKER_IMAGE["DV_JBDS:ADMIN_PORT"]="49210"
+
+DOCKER_IMAGE["BPM_JBDS:IMAGE_NAME"]="psteiner/bpm_jbds"
+DOCKER_IMAGE["BPM_JBDS:ZIP"]="software/jbdevstudio-product-universal-7.1.1.GA-v20140314-2145-B688.jar"
+DOCKER_IMAGE["BPM_JBDS:HTTP_PORT"]="49160"
+DOCKER_IMAGE["BPM_JBDS:ADMIN_PORT"]="49170"
+
 
 function sanity_check {
   IMAGE=$1
@@ -90,8 +103,8 @@ function remove_all_images {
   remove_image ${DOCKER_IMAGE["HEISE_BPM:IMAGE_NAME"]}
   remove_image ${DOCKER_IMAGE["HEISE_FSW:IMAGE_NAME"]}
   remove_image ${DOCKER_IMAGE["HEISE_DV:IMAGE_NAME"]}
-  remove_image ${DOCKER_IMAGE["JBDS:IMAGE_NAME"]}
-
+  remove_image ${DOCKER_IMAGE["DV_JBDS:IMAGE_NAME"]}
+  remove_image ${DOCKER_IMAGE["BPM_JBDS:IMAGE_NAME"]}
 }
 
 function build_image {
@@ -100,10 +113,18 @@ function build_image {
   echo "Building ${DOCKER_IMAGE["${IMAGE}:IMAGE_NAME"]}"
 
   if [ "$IMAGE" == "HEISE_BPM" ]; then
-	echo "Calling maven to create dashboard importer"
-        pushd dashboard-importer > /dev/null
-	mvn clean package > /dev/null
-	popd
+  	echo "Calling maven to create dashboard importer"
+    pushd dashboard-importer > /dev/null
+  	mvn clean package > /dev/null
+    popd
+
+    echo "Building Client-Jars for Salesforce WebService Call"
+    pushd Salesforce_WS/ClientClasses/Input > /dev/null
+    ant
+    popd
+    pushd Salesforce_WS/ClientClasses/Output > /dev/null
+    ant
+    popd
   fi
 
   docker build -q --rm -t ${DOCKER_IMAGE["${IMAGE}:IMAGE_NAME"]} .
@@ -158,7 +179,8 @@ sanity_check "BPM"
 sanity_check "FSW"
 sanity_check "DV"
 sanity_check "HEISE_BPM"
-sanity_check "JBDS"
+sanity_check "DV_JBDS"
+sanity_check "BPM_JBDS"
 
 case "$1" in
 remove)
@@ -195,16 +217,20 @@ remove)
       echo "Removing Heise_DV Image(s)"
       remove_image ${DOCKER_IMAGE["HEISE_DV:IMAGE_NAME"]}
       ;;
-    jbds)
-      echo "Removing Heise_DV Image(s)"
-      remove_image ${DOCKER_IMAGE["JBDS:IMAGE_NAME"]}
+    dv_jbds)
+      echo "Removing DV_JBDS Image(s)"
+      remove_image ${DOCKER_IMAGE["DV_JBDS:IMAGE_NAME"]}
+      ;;
+    bpm_jbds)
+      echo "Removing BPM_JBDS Image(s)"
+      remove_image ${DOCKER_IMAGE["BPM_JBDS:IMAGE_NAME"]}
       ;;
     all)
       echo "Removing All Images"
       remove_all_images
       ;;
     *)
-      echo "usage: ${NAME} remove (bpm|fsw|eap|dv|postgres|heise_bpm|heise_fsw|heise_dv|all)"
+      echo "usage: ${NAME} remove (bpm|fsw|eap|dv|postgres|heise_bpm|heise_fsw|heise_dv|dv_jbds|bpm_jbds|all)"
       exit 1
     esac
     ;;
@@ -242,26 +268,39 @@ start)
   fi
 
   case "$2" in
-    jbds)
-      echo "Starting ${DOCKER_IMAGE["JBDS:IMAGE_NAME"]}"
+    dv_jbds)
+      echo "Starting ${DOCKER_IMAGE["DV_JBDS:IMAGE_NAME"]}"
       WORKSPACE=`pwd`
       WORKSPACE=$WORKSPACE"/workspace/Docker_Heise_DV"
       echo "Mapping workspace to <"$WORKSPACE"> to /tmp/workspace"
 
-      docker run -i -t -p ${DOCKER_IMAGE["JBDS:HTTP_PORT"]}:8080 -p ${DOCKER_IMAGE["JBDS:ADMIN_PORT"]}:9990 -e DISPLAY=unix$DISPLAY -e TERM=$TERM -v $WORKSPACE:/tmp/workspace -v /tmp/.X11-unix:/tmp/.X11-unix --lxc-conf='lxc.cgroup.devices.allow = c 116:* rwm'  -h datavirt --link postgres:postgres ${DOCKER_IMAGE["JBDS:IMAGE_NAME"]} /home/jboss/jbdevstudio/jbdevstudio-unity
+      docker run -i -t -p ${DOCKER_IMAGE["DV_JBDS:HTTP_PORT"]}:8080 -p ${DOCKER_IMAGE["DV_JBDS:ADMIN_PORT"]}:9990 -e DISPLAY=unix$DISPLAY -e TERM=$TERM -v $WORKSPACE:/tmp/workspace -v /tmp/.X11-unix:/tmp/.X11-unix --lxc-conf='lxc.cgroup.devices.allow = c 116:* rwm'  -h datavirt --link postgres:postgres ${DOCKER_IMAGE["DV_JBDS:IMAGE_NAME"]} /home/jboss/jbdevstudio/jbdevstudio-unity
      ;;
-    all)
+
+    bpm_jbds)
 	  echo "Starting ${DOCKER_IMAGE["HEISE_DV:IMAGE_NAME"]}"
       WORKSPACE=`pwd`
       WORKSPACE=$WORKSPACE"/workspace/Docker_Heise_DV"
       docker run -p 49180:8080 -p 49190:9990 --name datavirt -h datavirt --link postgres:postgres -v $WORKSPACE:/tmp/workspace -d ${DOCKER_IMAGE["HEISE_DV:IMAGE_NAME"]}
 
+	  echo "Starting ${DOCKER_IMAGE["BPM_JBDS:IMAGE_NAME"]}"
+      WORKSPACE=`pwd`
+      WORKSPACE=$WORKSPACE"/workspace/Docker_Heise_BPM"
+      echo "Mapping workspace to <"$WORKSPACE"> to /tmp/workspace"
+
+      docker run -i -t -p ${DOCKER_IMAGE["BPM_JBDS:HTTP_PORT"]}:8080 -p ${DOCKER_IMAGE["BPM_JBDS:ADMIN_PORT"]}:9990 -e DISPLAY=unix$DISPLAY -e TERM=$TERM -v $WORKSPACE:/tmp/workspace -v /tmp/.X11-unix:/tmp/.X11-unix --lxc-conf='lxc.cgroup.devices.allow = c 116:* rwm' --link datavirt:datavirt --link postgres:postgres ${DOCKER_IMAGE["BPM_JBDS:IMAGE_NAME"]} /home/jbosseap/jbdevstudio/jbdevstudio-unity
+    ;; 
+    all)
+	  echo "Starting ${DOCKER_IMAGE["HEISE_DV:IMAGE_NAME"]}"
+      WORKSPACE=`pwd`
+      WORKSPACE=$WORKSPACE"/workspace/Docker_Heise_DV"
+      docker run -p 49180:8080 -p ${DOCKER_IMAGE["DV_HEISE:HTTP_PORT"]}:8080 -p ${DOCKER_IMAGE["DV_HEISE:ADMIN_PORT"]}:9990 --name datavirt -h datavirt --link postgres:postgres -v $WORKSPACE:/tmp/workspace -d ${DOCKER_IMAGE["HEISE_DV:IMAGE_NAME"]}
+
       echo "Starting ${DOCKER_IMAGE["HEISE_BPM:IMAGE_NAME"]}"
-      docker run -p 49160:8080 -p 49170:9990 --link fsw:fsw --link postgres:postgres --link datavirt:datavirt -d ${DOCKER_IMAGE["HEISE_BPM:IMAGE_NAME"]}
-      echo "${DOCKER_IMAGE["HEISE_DV:IMAGE_NAME"]}"
+      docker run -p ${DOCKER_IMAGE["HEISE_BPM:HTTP_PORT"]}:8080 -p ${DOCKER_IMAGE["HEISE_BPM:ADMIN_PORT"]}:9990 --link fsw:fsw --link postgres:postgres --link datavirt:datavirt -d ${DOCKER_IMAGE["HEISE_BPM:IMAGE_NAME"]}
 	  ;;
     *)
-      echo "usage: ${NAME} start (all|jbds)"
+      echo "usage: ${NAME} start (all|dv_jbds|bpm_jbds)"
       exit 1
     esac
     ;;
@@ -281,15 +320,19 @@ connect)
       connect_image "HEISE_DV"
       ;;
     postgres)
-      echo "Connecting into running postgresql container"
+      echo "Connecting into running ${DOCKER_IMAGE["POSTGRES:IMAGE_NAME"]} container"
       connect_image "POSTGRES"
       ;;
-    jbds)
-      echo "Connecting into running postgresql container"
-      connect_image "JBDS"
+    dv_jbds)
+      echo "Connecting into running ${DOCKER_IMAGE["DV_JBDS:IMAGE_NAME"]} container"
+      connect_image "DV_JBDS"
+      ;;
+    bpm_jbds)
+      echo "Connecting into running ${DOCKER_IMAGE["BPM_JBDS:IMAGE_NAME"]} container"
+      connect_image "BPM_JBDS"
       ;;
     *)
-      echo "usage: ${NAME} connect (heise_bpm|heise_fsw|heise_dv|postgres|jbds)"
+      echo "usage: ${NAME} connect (heise_bpm|heise_fsw|heise_dv|postgres|dv_jbds|bpm_jbds)"
       exit 1
   esac
   ;;
@@ -304,11 +347,14 @@ commit)
     heise_dv)
       commit_image "HEISE_DV"
       ;;
-    jbds)
-      commit_image "JBDS"
+    dv_jbds)
+      commit_image "DV_JBDS"
+      ;;
+    bpm_jbds)
+      commit_image "BPM_JBDS"
       ;;
     *)
-      echo "usage: ${NAME} commit (heise_bpm|heise_fsw|heise_dv|jbds)"
+      echo "usage: ${NAME} commit (heise_bpm|heise_fsw|heise_dv|dv_jbds|bpm_jbds)"
       exit 1
   esac
   ;;
@@ -327,11 +373,14 @@ ip)
     postgres)
       get_ip "POSTGRES"
       ;;
-    jbds)
-      get_ip "JBDS"
+    dv_jbds)
+      get_ip "DV_JBDS"
+      ;;
+    bpm_jbds)
+      get_ip "BPM_JBDS"
       ;;
     *)
-      echo "usage: ${NAME} ip (heise_bpm|heise_fsw|heise_dv|postgres)"
+      echo "usage: ${NAME} ip (heise_bpm|heise_fsw|heise_dv|postgres|dv_jbds|bpm_jbds)"
       exit 1
   esac
   ;;
@@ -361,8 +410,11 @@ build)
     heise_dv)
       build_image "HEISE_DV"
       ;;
-    jbds)
-      build_image "JBDS"
+    dv_jbds)
+      build_image "DV_JBDS"
+      ;;
+    bpm_jbds)
+      build_image "BPM_JBDS"
       ;;
     all)
       build_image "EAP"
@@ -373,10 +425,11 @@ build)
       build_image "HEISE_BPM"
       build_image "HEISE_FSW"
       build_image "HEISE_DV"
-      build_image "JBDS"
+      build_image "DV_JBDS"
+      build_image "BPM_JBDS"
       ;;
     *)
-      echo "usage: ${NAME} build (bpm|fsw|eap|dv|postgres|heise_bpm|heise_fsw|heise_dv|jbds|all)"
+      echo "usage: ${NAME} build (bpm|fsw|eap|dv|postgres|heise_bpm|heise_fsw|heise_dv|dv_jbds|bpm_jbds|all)"
       exit 1
     esac
     ;;
@@ -410,10 +463,10 @@ status)
     docker ps
     ;;
 help)
-    echo "usage: ${NAME} (remove|start|build|status|connect)"
+    echo "usage: ${NAME} (remove|start|build|status|connect|ip)"
     ;;
 *)
-    echo "usage: ${NAME} (remove|start|build|status|connect)"
+    echo "usage: ${NAME} (remove|start|build|status|connect|ip)"
     exit 1
 esac
 

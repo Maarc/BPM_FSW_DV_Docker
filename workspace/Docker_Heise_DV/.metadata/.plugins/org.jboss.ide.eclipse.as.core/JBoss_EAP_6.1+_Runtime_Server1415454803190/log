@@ -179,3 +179,55 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64 -product com.jboss.jbds.
 
 !ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2014-12-02 12:22:05.307
 !MESSAGE Server Startup Succeeded
+!SESSION 2014-12-02 21:23:38.875 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_71
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product com.jboss.jbds.product.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product com.jboss.jbds.product.product
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2014-12-02 21:27:17.380
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2014-12-02 21:27:31.898
+!MESSAGE Server Startup Succeeded
+!SESSION 2014-12-03 14:50:24.678 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_71
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product com.jboss.jbds.product.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product com.jboss.jbds.product.product
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2014-12-03 14:51:15.794
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2014-12-03 14:51:39.423
+!MESSAGE Server Startup Succeeded
+!SESSION 2014-12-03 19:19:21.009 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_71
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product com.jboss.jbds.product.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product com.jboss.jbds.product.product
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2014-12-03 19:21:44.303
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2014-12-03 19:21:58.734
+!MESSAGE Server Startup Succeeded
+!SESSION 2014-12-03 19:26:23.586 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_71
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product com.jboss.jbds.product.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product com.jboss.jbds.product.product
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2014-12-03 19:28:31.412
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2014-12-03 19:28:46.327
+!MESSAGE Server Startup Succeeded

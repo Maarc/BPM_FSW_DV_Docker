@@ -134,6 +134,14 @@
                         <password>change12_me</password>
                     </security>
                 </datasource>
+                 <datasource jndi-name="java:/Salesforce_VDB" pool-name="Salesforce_VDB" enabled="true">
+                    <connection-url>jdbc:teiid:Salesforce_VDB</connection-url>
+                    <driver>teiid</driver>
+                    <security>
+                        <user-name>psteiner</user-name>
+                        <password>change12_me</password>
+                    </security>
+                </datasource>
                 <drivers>
                     <driver name="h2" module="com.h2database.h2">
                         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns="http://www.metamatrix.com/Contact_Output" xmlns:Q1="http://www.metamatrix.com/metamodels/SimpleDatatypes-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.metamatrix.com/Contact_Output">
+  <xs:import namespace="http://www.metamatrix.com/metamodels/SimpleDatatypes-instance" schemaLocation="builtInDataTypes.xsd"/>
+  <xs:element name="Contact_Output">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="Contact_Output_Instance" type="Contact_Output_Type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="Contact_Output_Type">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="Id" nillable="false" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="IsDeleted" nillable="true" type="xs:boolean"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="MasterRecordId" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="AccountId" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="LastName" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="FirstName" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="Salutation" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="OtherStreet" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="OtherCity" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="OtherState" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="OtherPostalCode" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="OtherCountry" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="MailingStreet" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="MailingCity" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="MailingState" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="MailingPostalCode" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="MailingCountry" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="Phone" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="Fax" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="MobilePhone" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="HomePhone" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="OtherPhone" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="AssistantPhone" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="ReportsToId" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="Email" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="Title" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="Department" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="AssistantName" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="LeadSource" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="Birthdate" nillable="true" type="xs:date"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="OwnerId" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="LastActivityDate" nillable="true" type="xs:date"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="LastCURequestDate" nillable="true" type="Q1:timestamp"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="LastCUUpdateDate" nillable="true" type="Q1:timestamp"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="EmailBouncedReason" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="EmailBouncedDate" nillable="true" type="Q1:timestamp"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="Jigsaw" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="Level__c" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="Languages__c" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
