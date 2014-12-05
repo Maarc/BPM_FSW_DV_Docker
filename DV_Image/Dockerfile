@@ -55,6 +55,7 @@ RUN java -jar $INSTALLDIR/software/jboss-dv-installer-6.0.0.GA-redhat-4.jar $INS
 RUN mv $INSTALLDIR/support/teiid* $INSTALLDIR/jboss-eap-6.1/standalone/configuration
 RUN mv $INSTALLDIR/support/mgmt-users.properties $INSTALLDIR/jboss-eap-6.1/standalone/configuration
 RUN curl -o $INSTALLDIR/jdbc/postgresql-9.3-1101.jdbc41.jar http://jdbc.postgresql.org/download/postgresql-9.3-1101.jdbc41.jar
+RUN cp $INSTALLDIR/jdbc/postgresql-9.3-1101.jdbc41.jar $INSTALLDIR/jboss-eap-6.1/standalone/deployments
 RUN rm -rf $INSTALLDIR/jboss-eap-6.1/standalone/configuration/standalone_xml_history/current
 
 # Command line shortcuts

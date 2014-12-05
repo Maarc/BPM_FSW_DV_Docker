@@ -19,8 +19,8 @@ ADD . $HOME/tmp/
 RUN mkdir $HOME/.niogit && \
  cp -R $HOME/tmp/niogit/* $HOME/.niogit && \
  cp $HOME/tmp/BiPRO-Komposit-JAXB2-1.0.0.jar $HOME/eap/jboss-eap-6.1/standalone/deployments/business-central.war/WEB-INF/lib/ && \
- cp $HOME/tmp/Salesforce_WS/ClientClasses/Input/jaxb_build/Salesforce_Input.jar $HOME/eap/jboss-eap-6.1/standalone/deployments/business-central.war/WEB-INF/lib/ && \
- cp $HOME/tmp/Salesforce_WS/ClientClasses/Output/jaxb_build/Salesforce_Output.jar $HOME/eap/jboss-eap-6.1/standalone/deployments/business-central.war/WEB-INF/lib/ && \
+ cp $HOME/tmp/WebService/ClientClasses/Input/jaxb_build/WebService_Input.jar $HOME/eap/jboss-eap-6.1/standalone/deployments/business-central.war/WEB-INF/lib/ && \
+ cp $HOME/tmp/WebService/ClientClasses/Output/jaxb_build/WebService_Output.jar $HOME/eap/jboss-eap-6.1/standalone/deployments/business-central.war/WEB-INF/lib/ && \
  cp $HOME/tmp/configs/standalone.xml $HOME/eap/jboss-eap-6.1/standalone/configuration  && \
  cp $HOME/tmp/postgresql-8.4-703.jdbc4.jar $HOME/eap/jboss-eap-6.1/standalone/deployments && \
  cp $HOME/tmp/configs/heise*.xml $HOME/eap/jboss-eap-6.1/standalone/deployments/dashbuilder.war/WEB-INF/etc/appdata/initialData && \

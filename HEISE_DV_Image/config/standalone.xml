@@ -126,19 +126,19 @@
                         <password>admin</password>
                     </security>
                 </datasource>
-                <datasource jndi-name="java:/Heise" pool-name="Heise" enabled="true">
-                    <connection-url>jdbc:teiid:Heise</connection-url>
+                <datasource jndi-name="java:/AllCustomer_VDB" pool-name="AllCustomer_VDB" enabled="true">
+                    <connection-url>jdbc:teiid:AllCustomer_VDB</connection-url>
                     <driver>teiid</driver>
                     <security>
                         <user-name>psteiner</user-name>
                         <password>change12_me</password>
                     </security>
                 </datasource>
-                 <datasource jndi-name="java:/Salesforce_VDB" pool-name="Salesforce_VDB" enabled="true">
-                    <connection-url>jdbc:teiid:Salesforce_VDB</connection-url>
-                    <driver>teiid</driver>
+                <datasource jndi-name="java:/OurCustomer_DS" pool-name="OurCustomer_DS" enabled="true">
+                    <connection-url>jdbc:postgresql://postgres:5432/bamdb</connection-url>
+                    <driver>postgresql-9.3-1101.jdbc41.jar</driver>
                     <security>
-                        <user-name>psteiner</user-name>
+                        <user-name>bam</user-name>
                         <password>change12_me</password>
                     </security>
                 </datasource>

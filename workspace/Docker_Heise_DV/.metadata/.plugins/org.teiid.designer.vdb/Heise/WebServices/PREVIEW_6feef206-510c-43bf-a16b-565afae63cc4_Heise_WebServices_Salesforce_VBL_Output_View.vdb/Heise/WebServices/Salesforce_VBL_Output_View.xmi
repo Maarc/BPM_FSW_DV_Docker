@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:diagram="http://www.metamatrix.com/metamodels/Diagram" xmlns:mmcore="http://www.metamatrix.com/metamodels/Core" xmlns:transformation="http://www.metamatrix.com/metamodels/Transformation" xmlns:vxmldoc="http://www.metamatrix.com/metamodels/XmlDocument" xmlns:xsd="http://www.eclipse.org/xsd/2002/XSD">
+  <mmcore:ModelAnnotation xmi:uuid="mmuuid:05cc277f-df3c-48b3-b352-4f91e956cedd" primaryMetamodelUri="http://www.metamatrix.com/metamodels/XmlDocument" modelType="VIRTUAL" ProducerName="Teiid Designer" ProducerVersion="8.3.4.Final-v20140912-1304-B264">
+    <modelImports xmi:uuid="mmuuid:68f3cf8c-3703-480f-a2b2-5f8aa08cc316" name="Salesforce_VBL_Output" modelLocation="Salesforce_VBL_Output.xsd" modelType="TYPE" primaryMetamodelUri="http://www.eclipse.org/xsd/2002/XSD"/>
+    <modelImports xmi:uuid="mmuuid:1815ffed-ad10-41bb-89c4-f8b7c4ab2d0d" name="XMLSchema" modelLocation="http://www.w3.org/2001/XMLSchema" modelType="TYPE" primaryMetamodelUri="http://www.eclipse.org/xsd/2002/XSD"/>
+    <modelImports xmi:uuid="mmuuid:ee5c381c-1235-45d2-886c-93ac16548f27" name="SimpleDatatypes-instance" modelLocation="http://www.metamatrix.com/metamodels/SimpleDatatypes-instance" modelType="TYPE" primaryMetamodelUri="http://www.eclipse.org/xsd/2002/XSD"/>
+    <modelImports xmi:uuid="mmuuid:a5e66c6c-ae60-49a6-a7a9-cb3ac0628ce7" name="Salesforce_VBL" modelLocation="../VirtualBaseLayer/Salesforce_VBL.xmi" uuid="mmuuid:34560047-a8a6-45e4-b5d9-cb7787285f78" modelType="VIRTUAL" primaryMetamodelUri="http://www.metamatrix.com/metamodels/Relational"/>
+  </mmcore:ModelAnnotation>
+  <vxmldoc:XmlDocument xmi:uuid="mmuuid:de749512-4c4b-4195-b5ce-d4fb0f6c4b75" name="Contact_OutputView">
+    <root xmi:uuid="mmuuid:af306b90-cdea-48bb-804b-6be50a15eddb" name="Contact_Output" namespace="mmuuid/77e08e44-bd7d-4c1d-950c-e73b602dc581">
+      <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output;XSDElementDeclaration"/>
+      <entities xsi:type="vxmldoc:XmlSequence" xmi:uuid="mmuuid:4892a531-f07c-4546-b5da-052008d7cf72">
+        <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:dbfd8bc3-b4e9-44e5-98db-98e0d9dcae58" name="Contact_Output_Instance" namespace="mmuuid/77e08e44-bd7d-4c1d-950c-e73b602dc581">
+          <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/Contact_Output_Instance;XSDElementDeclaration"/>
+          <entities xsi:type="vxmldoc:XmlSequence" xmi:uuid="mmuuid:a8b571a3-1faa-4907-93a5-f44cc0e010cf">
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:c8817d8e-a58f-4e5e-95df-1feed01ea00f" name="Id">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/Id;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:f984e755-974e-4a19-bee4-5015dc36695b" name="IsDeleted">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/IsDeleted;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:1fa83494-11db-474b-8e9a-3304b083d991" name="MasterRecordId">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/MasterRecordId;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:539f2cc2-b189-4863-a380-cbd33618d427" name="AccountId">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3/AccountId;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:53158d9c-535e-477d-a625-c9194a666fe9" name="LastName">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=4/LastName;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:bb9e64ed-7f65-488e-80d3-d8ff850f7af6" name="FirstName">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=5/FirstName;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:91113b92-2225-40c9-bf14-c5d3fb1049a4" name="Salutation">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=6/Salutation;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:acbabfe7-c6d5-4349-8eb2-51d6a8edd608" name="Name">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=7/Name;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:48484bee-5046-4fe1-b76f-f3b4663bbd09" name="OtherStreet">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=8/OtherStreet;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:84f1f873-e3f7-40ea-a643-17a595323686" name="OtherCity">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=9/OtherCity;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:b453723d-c801-4372-a2d3-3dca3f0f1ed5" name="OtherState">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=10/OtherState;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:c5faf4ec-587c-4fc3-8dfa-b2c898497b83" name="OtherPostalCode">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=11/OtherPostalCode;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:b26e361c-749f-4604-b8eb-715b2ffd8d12" name="OtherCountry">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=12/OtherCountry;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:d0679fbc-0dd4-4223-93de-befcd540b6b9" name="MailingStreet">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=13/MailingStreet;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:040cdf64-25a9-4e46-a20d-9ea0c822764d" name="MailingCity">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=14/MailingCity;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:34bcf77c-3075-477e-8267-162764ef2519" name="MailingState">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=15/MailingState;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:2a9da7af-d537-485c-b6f5-cdf850d2889b" name="MailingPostalCode">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=16/MailingPostalCode;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:309b637a-e5c0-4cb4-b33e-573b51b38d8b" name="MailingCountry">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=17/MailingCountry;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:707a84f9-1ad9-4fc0-b5ee-3b0099658a61" name="Phone">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=18/Phone;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:2fd12819-b615-4fd6-bbd6-ce86223bd04c" name="Fax">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=19/Fax;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:3c26865d-e72b-45b0-af93-d196f633c490" name="MobilePhone">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=20/MobilePhone;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:fe0f46ff-c3ba-4e00-a642-eef6ff12f2aa" name="HomePhone">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=21/HomePhone;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:a5f7af09-cf70-4a77-8ff6-fc544d5b567c" name="OtherPhone">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=22/OtherPhone;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:8fcda715-ec90-422d-bb5e-73dc9c1ae4b9" name="AssistantPhone">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=23/AssistantPhone;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:8deafe74-5ad1-492b-a7e4-9a69fa389a59" name="ReportsToId">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=24/ReportsToId;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:73d87a3e-729c-4067-acc1-f85c3cb3e33f" name="Email">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=25/Email;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:b0563416-7869-4851-ab94-fb6e217f91b4" name="Title">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=26/Title;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:3617f972-1b4b-4527-8c13-a3d1612f2461" name="Department">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=27/Department;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:fc185bb3-76da-4991-b2da-5995750e95c3" name="AssistantName">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=28/AssistantName;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:0488244f-835f-4d95-bd2f-7d706b141b82" name="LeadSource">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=29/LeadSource;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:9f010f02-8235-4f55-9122-b0c566218b8f" name="Birthdate">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=30/Birthdate;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:071f07a4-8b69-481c-9ee3-2200b7431408" name="Description">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=31/Description;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:771de9c7-d7af-4a76-bddd-29311d5f2243" name="OwnerId">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=32/OwnerId;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:580def04-b89a-43da-bb0e-880c4ad0c697" name="LastActivityDate">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=33/LastActivityDate;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:4da8e980-2984-46b7-9d25-b490d14465c4" name="LastCURequestDate">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=34/LastCURequestDate;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:46c37ee6-1f93-4afc-8e34-02d6945f969a" name="LastCUUpdateDate">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=35/LastCUUpdateDate;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:d625ee4c-6e97-48a2-bdb1-a8b70addcf52" name="EmailBouncedReason">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=36/EmailBouncedReason;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:9f47fda3-a21d-4264-ba45-0a639c54eb35" name="EmailBouncedDate">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=37/EmailBouncedDate;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:c45b669e-56bb-4711-a936-32276a26f276" name="Jigsaw">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=38/Jigsaw;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:596be53b-8a65-4ded-befe-5de450944f45" name="Level__c">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=39/Level__c;XSDElementDeclaration"/>
+            </entities>
+            <entities xsi:type="vxmldoc:XmlElement" xmi:uuid="mmuuid:47231768-9a04-4e85-a69e-7f7efcc2c85b" name="Languages__c">
+              <xsdComponent xsi:type="xsd:XSDElementDeclaration" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=40/Languages__c;XSDElementDeclaration"/>
+            </entities>
+            <xsdComponent xsi:type="xsd:XSDModelGroup" href="Salesforce_VBL_Output.xsd#//Contact_Output_Type;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup"/>
+          </entities>
+        </entities>
+        <xsdComponent xsi:type="xsd:XSDModelGroup" href="Salesforce_VBL_Output.xsd#//Contact_Output;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup"/>
+      </entities>
+      <declaredNamespaces xmi:uuid="mmuuid:77e08e44-bd7d-4c1d-950c-e73b602dc581" prefix="Contact_Output" uri="http://www.metamatrix.com/Contact_Output"/>
+      <declaredNamespaces xmi:uuid="mmuuid:c2f1b344-84de-4cad-8ef9-da4a710ad8d7" prefix="Q1" uri="http://www.metamatrix.com/metamodels/SimpleDatatypes-instance"/>
+      <declaredNamespaces xmi:uuid="mmuuid:21d0a27a-aa45-4e6e-aa50-f3819eae38eb" prefix="xs" uri="http://www.w3.org/2001/XMLSchema"/>
+    </root>
+  </vxmldoc:XmlDocument>
+  <transformation:TransformationContainer xmi:uuid="mmuuid:ab30279f-d337-4cec-abae-b9862de1877a">
+    <transformationMappings xsi:type="transformation:TreeMappingRoot" xmi:uuid="mmuuid:626dc44e-f28a-47b2-9364-fd5c04dad690" inputs="mmuuid/f4c88f5c-cd76-4d19-9851-bbf43af253ab" outputs="mmuuid/dbfd8bc3-b4e9-44e5-98db-98e0d9dcae58" target="mmuuid/de749512-4c4b-4195-b5ce-d4fb0f6c4b75">
+      <nested xmi:uuid="mmuuid:99692e6c-cb1f-4c44-8d95-d1be339a1da3" inputs="mmuuid/4e3745d1-0222-4451-bb83-15832ec3f90d" outputs="mmuuid/c8817d8e-a58f-4e5e-95df-1feed01ea00f"/>
+      <nested xmi:uuid="mmuuid:066ddb5f-a72d-48f8-be93-87cc1cec16bc" inputs="mmuuid/4b66a965-44be-4ee4-874f-e82d8835d76b" outputs="mmuuid/f984e755-974e-4a19-bee4-5015dc36695b"/>
+      <nested xmi:uuid="mmuuid:dcdb0d69-d8dd-40f9-b47e-2fc4242fff51" inputs="mmuuid/e4fc0098-9db6-4f92-8578-352fa90bdaad" outputs="mmuuid/1fa83494-11db-474b-8e9a-3304b083d991"/>
+      <nested xmi:uuid="mmuuid:56f1fb02-04ee-4aef-a605-856527fce18f" inputs="mmuuid/1c76ef8e-a2ac-4069-990c-146a84abbd07" outputs="mmuuid/539f2cc2-b189-4863-a380-cbd33618d427"/>
+      <nested xmi:uuid="mmuuid:3c4e3a36-0225-46e0-b12d-4701262263e0" inputs="mmuuid/734034e7-bef8-4ff4-a40c-ac5ff6af418f" outputs="mmuuid/53158d9c-535e-477d-a625-c9194a666fe9"/>
+      <nested xmi:uuid="mmuuid:2fa4dfc7-6576-4a52-ab60-6b69dc751f28" inputs="mmuuid/a10d7ec9-8253-4c7b-b99c-ba51e237f2f6" outputs="mmuuid/bb9e64ed-7f65-488e-80d3-d8ff850f7af6"/>
+      <nested xmi:uuid="mmuuid:0aaa0cad-d5a5-4295-87e4-7ce5f45c8c28" inputs="mmuuid/8241aa71-8685-40af-8654-d66c86f87da8" outputs="mmuuid/91113b92-2225-40c9-bf14-c5d3fb1049a4"/>
+      <nested xmi:uuid="mmuuid:1c8001a2-b1fd-47ed-9f3f-1efae8e70ae3" inputs="mmuuid/22d7437e-4cf8-4e3d-9d12-db4deadf327b" outputs="mmuuid/acbabfe7-c6d5-4349-8eb2-51d6a8edd608"/>
+      <nested xmi:uuid="mmuuid:ae0d4184-80ad-4731-a843-b1abada3308b" inputs="mmuuid/bc759d0d-264d-4442-9108-006ee44fee43" outputs="mmuuid/48484bee-5046-4fe1-b76f-f3b4663bbd09"/>
+      <nested xmi:uuid="mmuuid:630ea702-a551-4193-a26a-01afc57f421c" inputs="mmuuid/311dbd59-7ad4-4a17-b9d4-4b52867d6e0a" outputs="mmuuid/84f1f873-e3f7-40ea-a643-17a595323686"/>
+      <nested xmi:uuid="mmuuid:7b3ed67a-eff8-420f-91db-a9d0493c0255" inputs="mmuuid/e2eb88cd-db1c-4004-becc-29028abad1ff" outputs="mmuuid/b453723d-c801-4372-a2d3-3dca3f0f1ed5"/>
+      <nested xmi:uuid="mmuuid:ab2895fb-4d1e-4c5a-aaa8-39397e1eb145" inputs="mmuuid/a20e33f0-2f07-41e2-b81b-c15278cb9f20" outputs="mmuuid/c5faf4ec-587c-4fc3-8dfa-b2c898497b83"/>
+      <nested xmi:uuid="mmuuid:15164d5d-b9e2-4bbe-a675-329520f825a1" inputs="mmuuid/4340ec84-e2c8-45f7-9ab8-98c851e3d6f6" outputs="mmuuid/b26e361c-749f-4604-b8eb-715b2ffd8d12"/>
+      <nested xmi:uuid="mmuuid:cdf96286-1e4d-4f66-8519-3c73a3266f67" inputs="mmuuid/55dc8bf7-79c9-4339-8a38-7baab34d7e8c" outputs="mmuuid/d0679fbc-0dd4-4223-93de-befcd540b6b9"/>
+      <nested xmi:uuid="mmuuid:c8a7515e-c4a5-46e3-a368-508ad1b7b481" inputs="mmuuid/a0d0dff6-59ee-4c5d-b20d-c15ae3a8f054" outputs="mmuuid/040cdf64-25a9-4e46-a20d-9ea0c822764d"/>
+      <nested xmi:uuid="mmuuid:79218e29-4881-4996-ae6a-56fb67abf724" inputs="mmuuid/5ae22267-c902-4ae0-a264-ceab8edaeb50" outputs="mmuuid/34bcf77c-3075-477e-8267-162764ef2519"/>
+      <nested xmi:uuid="mmuuid:1df089f7-7bbe-4f6e-8fc6-ff3a80f754cc" inputs="mmuuid/3af36f36-6c9f-473f-b0a8-a47bc36fb2d3" outputs="mmuuid/2a9da7af-d537-485c-b6f5-cdf850d2889b"/>
+      <nested xmi:uuid="mmuuid:66f239b7-eb62-41ed-bb97-fd5a8793563f" inputs="mmuuid/7a46fba2-a041-4719-a307-ccdbbdf67528" outputs="mmuuid/309b637a-e5c0-4cb4-b33e-573b51b38d8b"/>
+      <nested xmi:uuid="mmuuid:9020eef9-7ce0-48f8-97d3-f9d902f93782" inputs="mmuuid/f8332893-bf7a-491f-8a46-c2019a59b8c8" outputs="mmuuid/707a84f9-1ad9-4fc0-b5ee-3b0099658a61"/>
+      <nested xmi:uuid="mmuuid:893e8a9c-4304-4a16-ad42-188966122977" inputs="mmuuid/07dcb4c2-9491-4c5b-8a96-58b27f860c55" outputs="mmuuid/2fd12819-b615-4fd6-bbd6-ce86223bd04c"/>
+      <nested xmi:uuid="mmuuid:61877951-dae8-453b-95f4-6856946e4197" inputs="mmuuid/b9cb7f0b-7898-49be-8754-948fe23e844a" outputs="mmuuid/3c26865d-e72b-45b0-af93-d196f633c490"/>
+      <nested xmi:uuid="mmuuid:943d6cc7-7724-47e6-9457-b0487979c61e" inputs="mmuuid/52865f86-a46d-43b6-a56c-dc2fc4dbba3c" outputs="mmuuid/fe0f46ff-c3ba-4e00-a642-eef6ff12f2aa"/>
+      <nested xmi:uuid="mmuuid:1f4dab64-e44c-4852-bf4e-777a443f37d9" inputs="mmuuid/7a6a4d25-efa6-407c-a522-824573f578df" outputs="mmuuid/a5f7af09-cf70-4a77-8ff6-fc544d5b567c"/>
+      <nested xmi:uuid="mmuuid:1ea3ca19-6439-46d8-ab25-6d5d9f47236a" inputs="mmuuid/9c0b324a-e453-47f1-b2fa-cf1ba85b8753" outputs="mmuuid/8fcda715-ec90-422d-bb5e-73dc9c1ae4b9"/>
+      <nested xmi:uuid="mmuuid:6b01622d-56ba-45ae-b186-905a30168aaa" inputs="mmuuid/9f6688af-9878-4fec-a3b3-8c692f100a64" outputs="mmuuid/8deafe74-5ad1-492b-a7e4-9a69fa389a59"/>
+      <nested xmi:uuid="mmuuid:29f19a8c-bb55-4d25-8b07-d6502879d713" inputs="mmuuid/05f9e775-66c9-4b0e-8970-c3a8986fc6ec" outputs="mmuuid/73d87a3e-729c-4067-acc1-f85c3cb3e33f"/>
+      <nested xmi:uuid="mmuuid:d2ebda77-1bcb-4c7f-93ad-4312edf83762" inputs="mmuuid/1ae5b499-6310-44e1-a73c-1136d08a74a4" outputs="mmuuid/b0563416-7869-4851-ab94-fb6e217f91b4"/>
+      <nested xmi:uuid="mmuuid:8c73a8e8-6bb4-446b-bdae-62fa93909c1e" inputs="mmuuid/383f27df-e638-4110-bde1-73ebf6611e9e" outputs="mmuuid/3617f972-1b4b-4527-8c13-a3d1612f2461"/>
+      <nested xmi:uuid="mmuuid:ae5e2ebf-e534-41e8-965d-8f75c82621f9" inputs="mmuuid/4e51422d-06d5-46a2-abe4-4cbbed90b1e9" outputs="mmuuid/fc185bb3-76da-4991-b2da-5995750e95c3"/>
+      <nested xmi:uuid="mmuuid:2cf26cf9-7357-4121-b5e1-d3e7c5b6331b" inputs="mmuuid/3a021844-4126-49e6-847d-571a8c26533e" outputs="mmuuid/0488244f-835f-4d95-bd2f-7d706b141b82"/>
+      <nested xmi:uuid="mmuuid:c0d439b9-8265-477a-9f2c-205a7f28f84c" inputs="mmuuid/d99de72f-df9b-4a8e-b462-7a92ea5a86cb" outputs="mmuuid/9f010f02-8235-4f55-9122-b0c566218b8f"/>
+      <nested xmi:uuid="mmuuid:4e18b8f8-a3a0-406f-a734-b6d79250949a" inputs="mmuuid/27f1a252-7980-473d-b37a-ef13661de9ff" outputs="mmuuid/071f07a4-8b69-481c-9ee3-2200b7431408"/>
+      <nested xmi:uuid="mmuuid:b6d2507a-a68d-4640-a921-d5c7a9811c03" inputs="mmuuid/00f691f5-2096-4dc2-84da-3acd15d62546" outputs="mmuuid/771de9c7-d7af-4a76-bddd-29311d5f2243"/>
+      <nested xmi:uuid="mmuuid:81367a1d-836b-47c2-842e-755f94fea8b6" inputs="mmuuid/b9c7818a-14d0-4d02-a824-620d82d22310" outputs="mmuuid/580def04-b89a-43da-bb0e-880c4ad0c697"/>
+      <nested xmi:uuid="mmuuid:4e91c902-ff52-4cf5-ad0c-e09d08866418" inputs="mmuuid/517ee1e3-d065-409b-b349-11fa38914d19" outputs="mmuuid/4da8e980-2984-46b7-9d25-b490d14465c4"/>
+      <nested xmi:uuid="mmuuid:51e3fcd4-d0cf-4015-b4b0-0b6510ebdeb3" inputs="mmuuid/fa662ccd-9206-48a8-add0-0b493aa02626" outputs="mmuuid/46c37ee6-1f93-4afc-8e34-02d6945f969a"/>
+      <nested xmi:uuid="mmuuid:0062d3e3-05c6-4dbf-9a31-f12b79f2c4fd" inputs="mmuuid/bd3cc063-5804-4b97-9e7c-abd177ff7a8f" outputs="mmuuid/d625ee4c-6e97-48a2-bdb1-a8b70addcf52"/>
+      <nested xmi:uuid="mmuuid:e5a6be2c-6d67-4996-be7b-ad1e92025c16" inputs="mmuuid/577bc731-2644-456a-bce0-b131f0efc74e" outputs="mmuuid/9f47fda3-a21d-4264-ba45-0a639c54eb35"/>
+      <nested xmi:uuid="mmuuid:35e280d2-c563-4df7-9a41-4fe365e2c5ee" inputs="mmuuid/97d5b751-206e-4476-ab61-b77137cf5766" outputs="mmuuid/c45b669e-56bb-4711-a936-32276a26f276"/>
+      <nested xmi:uuid="mmuuid:67c1c0f5-addc-4019-ba11-0482f0fdd2cd" inputs="mmuuid/c99d82ba-a44e-4693-b502-d1f45afa0003" outputs="mmuuid/596be53b-8a65-4ded-befe-5de450944f45"/>
+      <nested xmi:uuid="mmuuid:ecc72f05-a373-4f22-92a1-fd00ea6e10ab" inputs="mmuuid/8ab7b313-8872-4e8d-a8ac-37f67b820b8c" outputs="mmuuid/47231768-9a04-4e85-a69e-7f7efcc2c85b"/>
+    </transformationMappings>
+    <transformationMappings xsi:type="transformation:SqlTransformationMappingRoot" xmi:uuid="mmuuid:846ef84a-5c11-4a91-a167-4f0fabc4dce0" outputs="mmuuid/f4c88f5c-cd76-4d19-9851-bbf43af253ab" target="mmuuid/f4c88f5c-cd76-4d19-9851-bbf43af253ab">
+      <helper xsi:type="transformation:SqlTransformation" xmi:uuid="mmuuid:69000f51-3bb1-4638-9e9c-aea60744433d">
+        <nested xsi:type="transformation:SqlTransformation" xmi:uuid="mmuuid:254c28be-1b40-4d00-b8cb-9597cfe018df" selectSql="SELECT * FROM Salesforce_VBL.Contact"/>
+        <aliases xmi:uuid="mmuuid:a79203cf-3b13-4430-8535-33f9b8740150" alias="Contact">
+          <aliasedObject href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/931998b9-a33d-4055-b7ac-ca9d24a6a77b"/>
+        </aliases>
+      </helper>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:eeb92bcb-070a-4aa3-b13b-fe1529672a4f" outputs="mmuuid/4e3745d1-0222-4451-bb83-15832ec3f90d">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/8426c894-714d-4fca-a616-06fa030aebbf"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:aba50268-5713-424a-8641-3968b30eb8ab" outputs="mmuuid/4b66a965-44be-4ee4-874f-e82d8835d76b">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/9fc92d31-15e5-46d0-b45b-310a4e478bb7"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:b092d2e4-285d-466d-b949-05d6217fddf9" outputs="mmuuid/e4fc0098-9db6-4f92-8578-352fa90bdaad">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/453dbcc9-348d-41ce-b433-1e32e5cba5cd"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:f17b8a0e-3491-4a84-be12-4788eea5f70a" outputs="mmuuid/1c76ef8e-a2ac-4069-990c-146a84abbd07">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/843084be-40ff-4f77-ac55-63915d1aa74d"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:1850c9f6-a5db-4443-9d61-175f2e33ae32" outputs="mmuuid/734034e7-bef8-4ff4-a40c-ac5ff6af418f">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/047e35a2-548c-4a4a-ba25-a3c037ae15cb"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:f197741c-8371-4db6-87df-2f99d0757752" outputs="mmuuid/a10d7ec9-8253-4c7b-b99c-ba51e237f2f6">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/a88cb377-2167-45d5-8f23-24a863afb974"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:59b66301-7354-45e7-8f3c-77b3546c331f" outputs="mmuuid/8241aa71-8685-40af-8654-d66c86f87da8">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/bc702bf0-c538-4f54-a1fc-38ef64e3740c"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:0cb7c373-b217-4502-ac45-557b0f13bf88" outputs="mmuuid/22d7437e-4cf8-4e3d-9d12-db4deadf327b">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/e4258d90-3b4a-4db2-a8b7-ea8ff834b9f7"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:329d419d-db4f-42f3-bed3-bd916fc61374" outputs="mmuuid/bc759d0d-264d-4442-9108-006ee44fee43">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/3ad3afd6-8d47-4138-ba27-70f725bfdcef"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:0950a838-c814-44d4-a44c-7618af86ecc2" outputs="mmuuid/311dbd59-7ad4-4a17-b9d4-4b52867d6e0a">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/31120ef0-23cb-4051-845f-1ad92e0139a0"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:7a6565d7-9e2b-445d-b9e7-28e013b69197" outputs="mmuuid/e2eb88cd-db1c-4004-becc-29028abad1ff">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/07f1a738-e88e-4f87-8925-8838dbc30945"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:462e5d95-7d09-4e28-bb4e-07dcb117c31b" outputs="mmuuid/a20e33f0-2f07-41e2-b81b-c15278cb9f20">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/64ed28bf-eea5-4e58-a9fb-224e1a13347b"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:85af4ecd-98ac-469d-9947-cfde01066095" outputs="mmuuid/4340ec84-e2c8-45f7-9ab8-98c851e3d6f6">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/13aa995c-28ca-409e-bf07-7e209a945069"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:a6772e36-f651-4d31-9bcf-0545ada9af75" outputs="mmuuid/55dc8bf7-79c9-4339-8a38-7baab34d7e8c">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/c35e6673-4793-4e92-8217-75ee20ac1015"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:5a908a0e-165e-4c38-a87f-0761535d1f07" outputs="mmuuid/a0d0dff6-59ee-4c5d-b20d-c15ae3a8f054">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/7a95f958-43f4-4f73-a515-d61d414e631f"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:7eaf1d7c-1836-46cd-8c56-e1d9faecbcfa" outputs="mmuuid/5ae22267-c902-4ae0-a264-ceab8edaeb50">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/20152f0c-4388-4105-b61c-b1b02aeb174c"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:108faa68-e95a-480c-a3cc-3a6e87507a95" outputs="mmuuid/3af36f36-6c9f-473f-b0a8-a47bc36fb2d3">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/88eb975c-52be-4ef2-a18e-c51d4ab62e90"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:a30c26e0-7235-4a16-916e-f3ba403c3eed" outputs="mmuuid/7a46fba2-a041-4719-a307-ccdbbdf67528">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/d5ecbb00-5cf4-4724-b80e-93fc205a2550"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:b0e1a1e7-b9a5-4fbe-9fce-ee36b45c5b4b" outputs="mmuuid/f8332893-bf7a-491f-8a46-c2019a59b8c8">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/6486dda9-32b4-4977-a92b-9251d201458c"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:7faf39bd-221e-4054-927f-dd9458b34c20" outputs="mmuuid/07dcb4c2-9491-4c5b-8a96-58b27f860c55">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/9f7cf99c-baca-42c5-87f2-226c5057bc2b"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:f40d8988-c0af-4808-a2d1-cfbc08b8b1d2" outputs="mmuuid/b9cb7f0b-7898-49be-8754-948fe23e844a">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/66844f0a-7069-49d4-b97a-85b09976046c"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:301d990c-47a5-4aa9-9b47-f3172a635ea3" outputs="mmuuid/52865f86-a46d-43b6-a56c-dc2fc4dbba3c">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/a7d8ae04-e251-41e9-ae78-907171e6f826"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:b65b0e32-f32e-4184-ad65-429bb026b945" outputs="mmuuid/7a6a4d25-efa6-407c-a522-824573f578df">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/170fac98-02b0-42fb-86c1-1519ccfa13ea"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:7c3260a7-e19b-408b-9b03-d0a49e0f6b9e" outputs="mmuuid/9c0b324a-e453-47f1-b2fa-cf1ba85b8753">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/9a5d6720-eac3-4cd7-afa0-4c340f35f4c9"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:2817538e-1799-4cf1-99a0-cd44a6dda8cb" outputs="mmuuid/9f6688af-9878-4fec-a3b3-8c692f100a64">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/770e5a55-f5fc-48c7-b5a9-1aa76c454dee"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:1c4a9e8c-6cb3-4639-80b7-fc54487c9b46" outputs="mmuuid/05f9e775-66c9-4b0e-8970-c3a8986fc6ec">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/737fd3ee-3e38-4df0-ae68-1fad4ba45f14"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:21980e95-2938-415b-be10-817f8e17cdfe" outputs="mmuuid/1ae5b499-6310-44e1-a73c-1136d08a74a4">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/a1dd70aa-6537-450c-94c9-ffde73dad237"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:77d58c1e-7257-45cc-b983-34926d1a732b" outputs="mmuuid/383f27df-e638-4110-bde1-73ebf6611e9e">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/be375e50-afd0-4855-bb00-045dd1c1bea0"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:1654a132-0234-4301-9303-17ed6888acda" outputs="mmuuid/4e51422d-06d5-46a2-abe4-4cbbed90b1e9">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/9bf42bc8-f1c5-4fff-aec5-d1d87f787a39"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:e43e1269-d0a8-4474-8ea5-6bb157bb2967" outputs="mmuuid/3a021844-4126-49e6-847d-571a8c26533e">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/2e3f3090-b5ce-4537-b3bf-59c3591ccbaf"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:853f3cf4-330f-4f83-b13d-6bcc004f5031" outputs="mmuuid/d99de72f-df9b-4a8e-b462-7a92ea5a86cb">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/4314c055-56de-4958-b1b5-2b50cd7f6206"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:3ef3a732-946a-4f33-8bd9-732cde6c65b3" outputs="mmuuid/27f1a252-7980-473d-b37a-ef13661de9ff">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/090f347d-6e6b-4e68-acc1-e55cd896bb61"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:dd4e72dd-1b0e-48fa-a50d-3b6745d4fa51" outputs="mmuuid/00f691f5-2096-4dc2-84da-3acd15d62546">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/fc3709e2-d8fe-4dc9-8a42-3c3c792a911c"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:874c6e04-c8f8-4d1c-9718-92679200729f" outputs="mmuuid/b9c7818a-14d0-4d02-a824-620d82d22310">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/06b3332b-bdcd-4100-b483-db8dcced52e1"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:9c573a74-9555-4c0c-8963-59f7fe274760" outputs="mmuuid/517ee1e3-d065-409b-b349-11fa38914d19">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/a53f3557-ef45-4838-97c2-bc06f2853827"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:5e3a5ec4-9090-460b-b8f4-dfdb547ff443" outputs="mmuuid/fa662ccd-9206-48a8-add0-0b493aa02626">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/92e7c742-f85a-4cb2-989e-836993bd0898"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:22b712e0-ca6f-4558-9197-5b7acd2ea121" outputs="mmuuid/bd3cc063-5804-4b97-9e7c-abd177ff7a8f">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/547fbcce-8e1a-4c87-9e51-9a668f78f5d0"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:cafb23c7-0228-441d-92ab-689995aefb06" outputs="mmuuid/577bc731-2644-456a-bce0-b131f0efc74e">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/c39311b9-6f73-4f6e-86d5-a68707ef6809"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:a547f52c-0d54-4e5a-bbc0-05c6e9e05691" outputs="mmuuid/97d5b751-206e-4476-ab61-b77137cf5766">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/0423adcb-7e79-40e4-8bdb-b290a73e9282"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:a1a9c3d1-f1db-4b65-aed9-816f67d0f34c" outputs="mmuuid/c99d82ba-a44e-4693-b502-d1f45afa0003">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/6d9f8115-d1e7-4620-9d26-d407000d7b99"/>
+      </nested>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:e90c6ee5-0f8b-4fc3-94a7-e486214de5d6" outputs="mmuuid/8ab7b313-8872-4e8d-a8ac-37f67b820b8c">
+        <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/7091bfc7-fa55-4c73-b29f-2a8e3d97fcec"/>
+      </nested>
+      <inputs href="../VirtualBaseLayer/Salesforce_VBL.xmi#mmuuid/931998b9-a33d-4055-b7ac-ca9d24a6a77b"/>
+    </transformationMappings>
+  </transformation:TransformationContainer>
+  <transformation:MappingClassSetContainer xmi:uuid="mmuuid:f8f9f113-3993-4d30-b9af-564d5a78edb5">
+    <mappingClassSets xmi:uuid="mmuuid:a8f61358-dc16-4981-a495-4d6d239ffb42" target="mmuuid/de749512-4c4b-4195-b5ce-d4fb0f6c4b75">
+      <mappingClasses xmi:uuid="mmuuid:f4c88f5c-cd76-4d19-9851-bbf43af253ab" name="Contact_Output_Instance">
+        <columns xmi:uuid="mmuuid:4e3745d1-0222-4451-bb83-15832ec3f90d" name="Id">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:4b66a965-44be-4ee4-874f-e82d8835d76b" name="IsDeleted">
+          <type href="http://www.w3.org/2001/XMLSchema#boolean"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:e4fc0098-9db6-4f92-8578-352fa90bdaad" name="MasterRecordId">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:1c76ef8e-a2ac-4069-990c-146a84abbd07" name="AccountId">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:734034e7-bef8-4ff4-a40c-ac5ff6af418f" name="LastName">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:a10d7ec9-8253-4c7b-b99c-ba51e237f2f6" name="FirstName">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:8241aa71-8685-40af-8654-d66c86f87da8" name="Salutation">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:22d7437e-4cf8-4e3d-9d12-db4deadf327b" name="Name">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:bc759d0d-264d-4442-9108-006ee44fee43" name="OtherStreet">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:311dbd59-7ad4-4a17-b9d4-4b52867d6e0a" name="OtherCity">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:e2eb88cd-db1c-4004-becc-29028abad1ff" name="OtherState">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:a20e33f0-2f07-41e2-b81b-c15278cb9f20" name="OtherPostalCode">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:4340ec84-e2c8-45f7-9ab8-98c851e3d6f6" name="OtherCountry">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:55dc8bf7-79c9-4339-8a38-7baab34d7e8c" name="MailingStreet">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:a0d0dff6-59ee-4c5d-b20d-c15ae3a8f054" name="MailingCity">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:5ae22267-c902-4ae0-a264-ceab8edaeb50" name="MailingState">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:3af36f36-6c9f-473f-b0a8-a47bc36fb2d3" name="MailingPostalCode">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:7a46fba2-a041-4719-a307-ccdbbdf67528" name="MailingCountry">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:f8332893-bf7a-491f-8a46-c2019a59b8c8" name="Phone">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:07dcb4c2-9491-4c5b-8a96-58b27f860c55" name="Fax">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:b9cb7f0b-7898-49be-8754-948fe23e844a" name="MobilePhone">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:52865f86-a46d-43b6-a56c-dc2fc4dbba3c" name="HomePhone">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:7a6a4d25-efa6-407c-a522-824573f578df" name="OtherPhone">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:9c0b324a-e453-47f1-b2fa-cf1ba85b8753" name="AssistantPhone">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:9f6688af-9878-4fec-a3b3-8c692f100a64" name="ReportsToId">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:05f9e775-66c9-4b0e-8970-c3a8986fc6ec" name="Email">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:1ae5b499-6310-44e1-a73c-1136d08a74a4" name="Title">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:383f27df-e638-4110-bde1-73ebf6611e9e" name="Department">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:4e51422d-06d5-46a2-abe4-4cbbed90b1e9" name="AssistantName">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:3a021844-4126-49e6-847d-571a8c26533e" name="LeadSource">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:d99de72f-df9b-4a8e-b462-7a92ea5a86cb" name="Birthdate">
+          <type href="http://www.w3.org/2001/XMLSchema#date"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:27f1a252-7980-473d-b37a-ef13661de9ff" name="Description">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:00f691f5-2096-4dc2-84da-3acd15d62546" name="OwnerId">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:b9c7818a-14d0-4d02-a824-620d82d22310" name="LastActivityDate">
+          <type href="http://www.w3.org/2001/XMLSchema#date"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:517ee1e3-d065-409b-b349-11fa38914d19" name="LastCURequestDate">
+          <type href="http://www.metamatrix.com/metamodels/SimpleDatatypes-instance#timestamp"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:fa662ccd-9206-48a8-add0-0b493aa02626" name="LastCUUpdateDate">
+          <type href="http://www.metamatrix.com/metamodels/SimpleDatatypes-instance#timestamp"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:bd3cc063-5804-4b97-9e7c-abd177ff7a8f" name="EmailBouncedReason">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:577bc731-2644-456a-bce0-b131f0efc74e" name="EmailBouncedDate">
+          <type href="http://www.metamatrix.com/metamodels/SimpleDatatypes-instance#timestamp"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:97d5b751-206e-4476-ab61-b77137cf5766" name="Jigsaw">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:c99d82ba-a44e-4693-b502-d1f45afa0003" name="Level__c">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <columns xmi:uuid="mmuuid:8ab7b313-8872-4e8d-a8ac-37f67b820b8c" name="Languages__c">
+          <type href="http://www.w3.org/2001/XMLSchema#string"/>
+        </columns>
+        <inputSet xmi:uuid="mmuuid:f483e8cd-89bf-4d9c-b496-38f0c5753267"/>
+      </mappingClasses>
+    </mappingClassSets>
+  </transformation:MappingClassSetContainer>
+  <diagram:DiagramContainer xmi:uuid="mmuuid:b94cf97a-b008-459a-8b68-2a6b2e90cb96">
+    <diagram xmi:uuid="mmuuid:59d61179-dad4-4d67-9adf-bc8d5f07f587" type="packageDiagramType" target="mmuuid/05cc277f-df3c-48b3-b352-4f91e956cedd">
+      <diagramEntity xmi:uuid="mmuuid:7f9b8ce1-8b87-4988-bad1-dfec83c4ecf1" modelObject="mmuuid/de749512-4c4b-4195-b5ce-d4fb0f6c4b75" xPosition="10" yPosition="10"/>
+    </diagram>
+  </diagram:DiagramContainer>
+</xmi:XMI>

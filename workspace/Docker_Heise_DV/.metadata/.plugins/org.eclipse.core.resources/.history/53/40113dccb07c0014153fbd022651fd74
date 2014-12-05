@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mmcore="http://www.metamatrix.com/metamodels/Core" xmlns:mmws="http://www.metamatrix.com/metamodels/WebService" xmlns:transformation="http://www.metamatrix.com/metamodels/Transformation">
+  <mmcore:ModelAnnotation xmi:uuid="mmuuid:25c2a3dd-ae1c-4de2-a79c-3b5b0b97dc39" primaryMetamodelUri="http://www.metamatrix.com/metamodels/WebService" modelType="VIRTUAL" ProducerName="Teiid Designer" ProducerVersion="8.3.4.Final-v20140912-1304-B264">
+    <modelImports xmi:uuid="mmuuid:ca276cac-b9d5-45b4-b126-19c7786a80b2" name="AllCustomer_FDL_Input" modelLocation="AllCustomer_FDL_Input.xsd" modelType="TYPE" primaryMetamodelUri="http://www.eclipse.org/xsd/2002/XSD"/>
+    <modelImports xmi:uuid="mmuuid:2687c73a-92a3-4d79-96c0-6a36939a8d8e" name="AllCustomer_FDL_Output" modelLocation="AllCustomer_FDL_Output.xsd" modelType="TYPE" primaryMetamodelUri="http://www.eclipse.org/xsd/2002/XSD"/>
+    <modelImports xmi:uuid="mmuuid:bb0f21ce-e236-41bc-9ef1-7ab4f111e8a9" name="AllCustomer_FDL_Output_View" modelLocation="AllCustomer_FDL_Output_View.xmi" uuid="mmuuid:32c4e0ba-fa21-4eca-9bbe-bbe34c957ee4" modelType="VIRTUAL" primaryMetamodelUri="http://www.metamatrix.com/metamodels/XmlDocument"/>
+  </mmcore:ModelAnnotation>
+  <mmws:Interface xmi:uuid="mmuuid:79a93447-5571-4624-93b2-d814837dd1cc" name="AllCustomer_FDL_customer">
+    <operations xmi:uuid="mmuuid:ecad00be-e536-4182-a8f5-69e69b38d690" name="getcustomer">
+      <input xmi:uuid="mmuuid:6dc0fcb4-9a46-4bd5-ba09-878a7fe037fc" name="customer_InputMsg">
+        <contentElement href="AllCustomer_FDL_Input.xsd#//customer_Input;XSDElementDeclaration"/>
+      </input>
+      <output xmi:uuid="mmuuid:17bf1587-9bcd-47d3-9720-711196f157e1" name="customer_OutputMsg">
+        <contentElement href="AllCustomer_FDL_Output.xsd#//customer_Output;XSDElementDeclaration"/>
+        <samples xmi:uuid="mmuuid:2c19be4c-c793-4d97-8633-44ea1aa6e8e2"/>
+        <xmlDocument href="AllCustomer_FDL_Output_View.xmi#mmuuid/9dec50c1-b6c4-41b4-97e2-c056da9fe586"/>
+      </output>
+    </operations>
+  </mmws:Interface>
+  <transformation:TransformationContainer xmi:uuid="mmuuid:8210bae1-ff41-4913-81ac-1f291a4815b6">
+    <transformationMappings xsi:type="transformation:SqlTransformationMappingRoot" xmi:uuid="mmuuid:85b3a5bc-8bae-4403-a83a-808ecafdc6d8" outputs="mmuuid/ecad00be-e536-4182-a8f5-69e69b38d690" target="mmuuid/ecad00be-e536-4182-a8f5-69e69b38d690">
+      <helper xsi:type="transformation:SqlTransformation" xmi:uuid="mmuuid:9aca02ce-8ec1-452e-8b6c-c6b4ac4fb75a">
+        <nested xsi:type="transformation:SqlTransformation" xmi:uuid="mmuuid:22c6c97e-90b8-4f2f-a13f-3433a5007eeb" selectSql="CREATE VIRTUAL PROCEDURE BEGIN DECLARE string VARIABLES.IN_LASTNAME;VARIABLES.IN_LASTNAME = xPathValue(AllCustomer_FDL_WS.AllCustomer_FDL_customer.getcustomer.customer_InputMsg, '/*:customer_Input/*:lastname');SELECT * FROM AllCustomer_FDL_Output_View.customer_OutputView WHERE  (AllCustomer_FDL_Output_View.customer_OutputView.customer_Output.customer_Output_Instance.lastname = VARIABLES.IN_LASTNAME) ; END"/>
+      </helper>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:3ff59b45-780f-4fdc-b2ca-5cc70c01eae1" outputs="mmuuid/2c19be4c-c793-4d97-8633-44ea1aa6e8e2"/>
+    </transformationMappings>
+  </transformation:TransformationContainer>
+</xmi:XMI>

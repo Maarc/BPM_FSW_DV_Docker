@@ -19,10 +19,10 @@ RUN yum -y update;yum clean all
 RUN mkdir $INSTALLDIR/support
 RUN mkdir /tmp/workspace
 ADD config/standalone.xml $INSTALLDIR/support/standalone.xml
-ADD software/Salesforce_VDB.vdb $INSTALLDIR/jboss-eap-6.1/standalone/deployments/Salesforce_VDB.vdb
-ADD software/Salesforce_VDB.war $INSTALLDIR/jboss-eap-6.1/standalone/deployments/Salesforce_VDB.war
+ADD software/AllCustomer_VDB.vdb $INSTALLDIR/jboss-eap-6.1/standalone/deployments/AllCustomer_VDB.vdb
+ADD software/AllCustomer_VDB.war $INSTALLDIR/jboss-eap-6.1/standalone/deployments/AllCustomer_VDB.war
 RUN mv $INSTALLDIR/support/standalone.xml $INSTALLDIR/jboss-eap-6.1/standalone/configuration/standalone.xml
-RUN touch $INSTALLDIR/jboss-eap-6.1/standalone/deployments/Salesforce_VDB.vdb.dodeploy 
+RUN touch $INSTALLDIR/jboss-eap-6.1/standalone/deployments/AllCustomer_VDB.vdb.dodeploy 
 RUN rm -rf $INSTALLDIR/support
 
 EXPOSE 22 3306 5432 8080 9990 27017 9999

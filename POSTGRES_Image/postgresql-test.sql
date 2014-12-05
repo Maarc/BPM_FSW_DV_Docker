@@ -25,14 +25,10 @@ INSERT INTO "bam.hausrat_neugeschaeft" VALUES ('0000000012', 30+ROUND(RANDOM()*1
 
 DROP TABLE "customer";
 CREATE TABLE "customer" (
-    cid        			 INTEGER primary key,
+    salesforceID         varchar(50),
     firstname      		 varchar(50),
-    lastname       		 varchar(50),
-    street				 varchar(50),
-    zip					 varchar(50),
-    town				 varchar(50),
-    country				 varchar(50)
+    lastname       		 varchar(50) primary key
 );
 
-INSERT INTO "customer" VALUES (1, 'Patrick', 'Steiner', 'Werner-von-Siemens-Ring', '85630', 'Grasbrunn' , 'Germany');
+INSERT INTO "customer" VALUES ('003240000016nU9AAI', 'Patrick', 'Steiner');
 

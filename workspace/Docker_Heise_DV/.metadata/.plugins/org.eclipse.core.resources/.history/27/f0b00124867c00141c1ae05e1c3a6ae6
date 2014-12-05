@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://www.metamatrix.com/metamodels/Diagram" xmlns:jdbc="http://www.metamatrix.com/metamodels/JDBC" xmlns:mmcore="http://www.metamatrix.com/metamodels/Core" xmlns:relational="http://www.metamatrix.com/metamodels/Relational">
+  <mmcore:ModelAnnotation xmi:uuid="mmuuid:3775458c-fa39-4a93-95a7-8e5dfea1d425" primaryMetamodelUri="http://www.metamatrix.com/metamodels/Relational" modelType="PHYSICAL" ProducerName="Teiid Designer" ProducerVersion="8.3.4.Final-v20140912-1304-B264">
+    <modelImports xmi:uuid="mmuuid:330d0c31-9779-4b10-8072-38a41cd5859f" name="XMLSchema" modelLocation="http://www.w3.org/2001/XMLSchema" modelType="TYPE" primaryMetamodelUri="http://www.eclipse.org/xsd/2002/XSD"/>
+  </mmcore:ModelAnnotation>
+  <relational:BaseTable xmi:uuid="mmuuid:cf4728d3-82b2-4b87-93e2-26260a980b7c" name="customer" nameInSource="&quot;public&quot;.&quot;customer&quot;">
+    <columns xmi:uuid="mmuuid:0b0369f9-7c4d-4182-ac99-1300f7b77101" name="firstname" nameInSource="&quot;firstname&quot;" nativeType="varchar" length="50">
+      <type href="http://www.w3.org/2001/XMLSchema#string"/>
+    </columns>
+    <columns xmi:uuid="mmuuid:c9b9e2bb-4ef7-4a8d-aa7d-7893394345b5" name="lastname" nameInSource="&quot;lastname&quot;" nativeType="varchar" length="50" nullable="NO_NULLS" uniqueKeys="mmuuid/77170002-6c03-4288-a36d-25fdd362b22f">
+      <type href="http://www.w3.org/2001/XMLSchema#string"/>
+    </columns>
+    <columns xmi:uuid="mmuuid:9bf65573-b30e-4076-9d36-24f9383db8ba" name="street" nameInSource="&quot;street&quot;" nativeType="varchar" length="50">
+      <type href="http://www.w3.org/2001/XMLSchema#string"/>
+    </columns>
+    <columns xmi:uuid="mmuuid:36679302-b548-4eb2-8729-14543dfda140" name="zip" nameInSource="&quot;zip&quot;" nativeType="varchar" length="50">
+      <type href="http://www.w3.org/2001/XMLSchema#string"/>
+    </columns>
+    <columns xmi:uuid="mmuuid:9ca708c6-9352-4ad9-ab77-856007324ff8" name="town" nameInSource="&quot;town&quot;" nativeType="varchar" length="50">
+      <type href="http://www.w3.org/2001/XMLSchema#string"/>
+    </columns>
+    <columns xmi:uuid="mmuuid:83a8ebc1-44c5-424d-bcdb-180d5021590e" name="country" nameInSource="&quot;country&quot;" nativeType="varchar" length="50">
+      <type href="http://www.w3.org/2001/XMLSchema#string"/>
+    </columns>
+    <primaryKey xmi:uuid="mmuuid:77170002-6c03-4288-a36d-25fdd362b22f" name="customer_pkey" nameInSource="&quot;customer_pkey&quot;" columns="mmuuid/c9b9e2bb-4ef7-4a8d-aa7d-7893394345b5"/>
+  </relational:BaseTable>
+  <mmcore:AnnotationContainer xmi:uuid="mmuuid:d1bb1389-b5db-4818-8fa0-9b530de82d7f">
+    <annotations xmi:uuid="mmuuid:d32ba4dc-ae0b-49d4-a8ec-b0e64b64921f" annotatedObject="mmuuid/3775458c-fa39-4a93-95a7-8e5dfea1d425">
+      <tags xmi:uuid="mmuuid:dfb93005-fb0e-4f20-9b34-7f4035fc06ea" key="connection:driver-class" value="org.postgresql.Driver"/>
+      <tags xmi:uuid="mmuuid:eb038cc8-585b-40aa-964d-ce262e790f1c" key="connectionProfile:connectionProfileName" value="New PostgreSQL(0)"/>
+      <tags xmi:uuid="mmuuid:a259d47e-dd8c-49e0-92c2-1802dc632a6f" key="connection:jarList" value="/home/jboss/dv/jdbc/postgresql-9.3-1101.jdbc41.jar"/>
+      <tags xmi:uuid="mmuuid:9476c1d9-caaa-4ba1-bcce-599329115de3" key="connectionProfile:connectionProfileProviderId" value="org.eclipse.datatools.enablement.postgresql.connectionProfile"/>
+      <tags xmi:uuid="mmuuid:85759c04-4895-47b7-9f3d-f7dabf2ccfca" key="translator:name" value="postgresql"/>
+      <tags xmi:uuid="mmuuid:1dc7f597-22c8-423d-9c50-9624ebe5a47b" key="connection:connection-url" value="jdbc:postgresql://postgres:5432/bamdb"/>
+      <tags xmi:uuid="mmuuid:1b3a9841-21dc-436e-9d45-5069cce498c6" key="connectionProfile:connectionProfileInstanceID" value="aba41151-7c7d-11e4-be09-c31f48e6037f"/>
+      <tags xmi:uuid="mmuuid:d02fce3b-12d4-4ae4-a60d-984db81c9a1e" key="connection:connectionProfileInstanceID" value="org.eclipse.datatools.enablement.postgresql.connectionProfile"/>
+      <tags xmi:uuid="mmuuid:e9c8e07f-fd29-4da9-aff8-21d42a670c29" key="connectionProfile:connectionProfileDescription" value=""/>
+      <tags xmi:uuid="mmuuid:7ef0d0ac-b93a-4edb-9009-a831866a10d3" key="connection:user-name" value="bam"/>
+      <tags xmi:uuid="mmuuid:26ea52c6-115f-4ddb-9aea-0db57d47ed6d" key="connectionProfile:connectionProfileCategory" value="org.eclipse.datatools.connectivity.db.category"/>
+    </annotations>
+  </mmcore:AnnotationContainer>
+  <diagram:DiagramContainer xmi:uuid="mmuuid:c76e3390-0996-485f-ac30-cf0f805393f5"/>
+  <jdbc:JdbcSource xmi:uuid="mmuuid:ed52226f-bae0-4e03-ae29-b057564b4da3" name="New PostgreSQL(0)" driverName="PostgreSQL JDBC Driver" driverClass="org.postgresql.Driver" username="bam" url="jdbc:postgresql://postgres:5432/bamdb">
+    <importSettings xmi:uuid="mmuuid:4dbf1693-9329-41c6-bb74-5c5ad35c1dce" createSchemasInModel="false" includeIndexes="false" includeApproximateIndexes="false">
+      <includedSchemaPaths>/public</includedSchemaPaths>
+      <excludedObjectPaths>/public/TABLE/bam.hausrat_neugeschaeft</excludedObjectPaths>
+      <includedTableTypes>FOREIGN TABLE</includedTableTypes>
+      <includedTableTypes>INDEX</includedTableTypes>
+      <includedTableTypes>MATERIALIZED VIEW</includedTableTypes>
+      <includedTableTypes>SEQUENCE</includedTableTypes>
+      <includedTableTypes>SYSTEM INDEX</includedTableTypes>
+      <includedTableTypes>SYSTEM TABLE</includedTableTypes>
+      <includedTableTypes>SYSTEM TOAST INDEX</includedTableTypes>
+      <includedTableTypes>SYSTEM TOAST TABLE</includedTableTypes>
+      <includedTableTypes>SYSTEM VIEW</includedTableTypes>
+      <includedTableTypes>TABLE</includedTableTypes>
+      <includedTableTypes>TEMPORARY INDEX</includedTableTypes>
+      <includedTableTypes>TEMPORARY SEQUENCE</includedTableTypes>
+      <includedTableTypes>TEMPORARY TABLE</includedTableTypes>
+      <includedTableTypes>TEMPORARY VIEW</includedTableTypes>
+      <includedTableTypes>TYPE</includedTableTypes>
+      <includedTableTypes>VIEW</includedTableTypes>
+    </importSettings>
+  </jdbc:JdbcSource>
+</xmi:XMI>

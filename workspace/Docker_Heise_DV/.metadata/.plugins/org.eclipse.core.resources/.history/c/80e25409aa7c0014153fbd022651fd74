@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://www.metamatrix.com/metamodels/Diagram" xmlns:jdbc="http://www.metamatrix.com/metamodels/JDBC" xmlns:mmcore="http://www.metamatrix.com/metamodels/Core" xmlns:relational="http://www.metamatrix.com/metamodels/Relational">
+  <mmcore:ModelAnnotation xmi:uuid="mmuuid:64c9f449-6f0c-4807-b34f-21f3e4747fd7" primaryMetamodelUri="http://www.metamatrix.com/metamodels/Relational" modelType="PHYSICAL" ProducerName="Teiid Designer" ProducerVersion="8.3.4.Final-v20140912-1304-B264">
+    <modelImports xmi:uuid="mmuuid:02bb59af-668b-4221-a448-69b0335d1af3" name="XMLSchema" modelLocation="http://www.w3.org/2001/XMLSchema" modelType="TYPE" primaryMetamodelUri="http://www.eclipse.org/xsd/2002/XSD"/>
+  </mmcore:ModelAnnotation>
+  <relational:BaseTable xmi:uuid="mmuuid:68741ddb-5fd9-472d-8770-60db26157e69" name="customer" nameInSource="&quot;public&quot;.&quot;customer&quot;">
+    <columns xmi:uuid="mmuuid:d87a9cf8-8710-48e7-ac7c-6cfc37d576b7" name="salesforceid" nameInSource="&quot;salesforceid&quot;" nativeType="varchar" length="50">
+      <type href="http://www.w3.org/2001/XMLSchema#string"/>
+    </columns>
+    <columns xmi:uuid="mmuuid:d7a3c1f3-6b32-48df-b198-0e274444683a" name="firstname" nameInSource="&quot;firstname&quot;" nativeType="varchar" length="50">
+      <type href="http://www.w3.org/2001/XMLSchema#string"/>
+    </columns>
+    <columns xmi:uuid="mmuuid:1af91de1-4426-4271-99e0-33adb7a44b80" name="lastname" nameInSource="&quot;lastname&quot;" nativeType="varchar" length="50" nullable="NO_NULLS" uniqueKeys="mmuuid/59fc36fe-d934-43fe-81d3-45afad83ab9f">
+      <type href="http://www.w3.org/2001/XMLSchema#string"/>
+    </columns>
+    <primaryKey xmi:uuid="mmuuid:59fc36fe-d934-43fe-81d3-45afad83ab9f" name="customer_pkey" nameInSource="&quot;customer_pkey&quot;" columns="mmuuid/1af91de1-4426-4271-99e0-33adb7a44b80"/>
+  </relational:BaseTable>
+  <mmcore:AnnotationContainer xmi:uuid="mmuuid:323fda82-5c10-499b-8dbe-8cdcf119e9bf">
+    <annotations xmi:uuid="mmuuid:ae2688d2-55df-4de6-9f98-f5453a529c40" annotatedObject="mmuuid/64c9f449-6f0c-4807-b34f-21f3e4747fd7">
+      <tags xmi:uuid="mmuuid:faf8309f-956b-439e-b5d8-969fa7bb1f88" key="connection:driver-class" value="org.postgresql.Driver"/>
+      <tags xmi:uuid="mmuuid:51b887f5-1f8c-491e-a39d-9e1c3f8cb9c7" key="connectionProfile:connectionProfileName" value="Postgres_Connection"/>
+      <tags xmi:uuid="mmuuid:8a37bc13-00cf-4437-9315-ff8ea77d2b42" key="connection:jarList" value="/home/jboss/dv/jdbc/postgresql-9.3-1101.jdbc41.jar"/>
+      <tags xmi:uuid="mmuuid:2665a8a3-3bbf-4158-89bc-cc6b03a1408c" key="connectionProfile:connectionProfileProviderId" value="org.eclipse.datatools.enablement.postgresql.connectionProfile"/>
+      <tags xmi:uuid="mmuuid:fdb50091-6d6f-41b2-8878-1d677bb3be0e" key="translator:name" value="postgresql"/>
+      <tags xmi:uuid="mmuuid:f5687b68-8970-47cd-8e7d-38ca62512c33" key="connection:connection-url" value="jdbc:postgresql://postgres:5432/bamdb"/>
+      <tags xmi:uuid="mmuuid:5d29bb93-ba00-42c7-be11-d190a9acd5aa" key="connectionProfile:connectionProfileInstanceID" value="4edd3f41-7c83-11e4-9b1f-a698bab9860e"/>
+      <tags xmi:uuid="mmuuid:d7d7e295-cd55-4c5b-a1af-09721740bca4" key="connection:connectionProfileInstanceID" value="org.eclipse.datatools.enablement.postgresql.connectionProfile"/>
+      <tags xmi:uuid="mmuuid:4bad88bd-5509-4e77-88bc-81012b7f6aaa" key="connectionProfile:connectionProfileDescription" value=""/>
+      <tags xmi:uuid="mmuuid:5773c59b-1604-4097-86fc-e31941211e94" key="connection:user-name" value="bam"/>
+      <tags xmi:uuid="mmuuid:7bacb770-ae75-417e-9af2-c993f338c301" key="connectionProfile:connectionProfileCategory" value="org.eclipse.datatools.connectivity.db.category"/>
+    </annotations>
+  </mmcore:AnnotationContainer>
+  <diagram:DiagramContainer xmi:uuid="mmuuid:b89511c4-14eb-45d7-b3a9-497cf7871a93"/>
+  <jdbc:JdbcSource xmi:uuid="mmuuid:10ac5feb-1501-448c-87d3-819b0d5c61d2" name="Postgres_Connection" driverName="PostgreSQL JDBC Driver" driverClass="org.postgresql.Driver" username="bam" url="jdbc:postgresql://postgres:5432/bamdb">
+    <importSettings xmi:uuid="mmuuid:f23171ff-277e-448f-9d23-e63c63f1bda1" createSchemasInModel="false" includeIndexes="false" includeApproximateIndexes="false">
+      <includedSchemaPaths>/public</includedSchemaPaths>
+      <excludedObjectPaths>/public/TABLE/bam.hausrat_neugeschaeft</excludedObjectPaths>
+      <includedTableTypes>FOREIGN TABLE</includedTableTypes>
+      <includedTableTypes>INDEX</includedTableTypes>
+      <includedTableTypes>MATERIALIZED VIEW</includedTableTypes>
+      <includedTableTypes>SEQUENCE</includedTableTypes>
+      <includedTableTypes>SYSTEM INDEX</includedTableTypes>
+      <includedTableTypes>SYSTEM TABLE</includedTableTypes>
+      <includedTableTypes>SYSTEM TOAST INDEX</includedTableTypes>
+      <includedTableTypes>SYSTEM TOAST TABLE</includedTableTypes>
+      <includedTableTypes>SYSTEM VIEW</includedTableTypes>
+      <includedTableTypes>TABLE</includedTableTypes>
+      <includedTableTypes>TEMPORARY INDEX</includedTableTypes>
+      <includedTableTypes>TEMPORARY SEQUENCE</includedTableTypes>
+      <includedTableTypes>TEMPORARY TABLE</includedTableTypes>
+      <includedTableTypes>TEMPORARY VIEW</includedTableTypes>
+      <includedTableTypes>TYPE</includedTableTypes>
+      <includedTableTypes>VIEW</includedTableTypes>
+    </importSettings>
+  </jdbc:JdbcSource>
+</xmi:XMI>

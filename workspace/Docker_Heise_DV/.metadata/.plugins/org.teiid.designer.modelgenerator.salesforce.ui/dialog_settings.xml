@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.teiid.designer.modelgenerator.salesforce.ui.wizards.SalesforceToRelationalImportWizard">
+		<item value="807" key="height"/>
+		<item value="939" key="width"/>
+	</section>
+</section>

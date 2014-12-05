@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.teiid.designer.runtime.ui.wizards.webservices.WarDeploymentInfoDataPage">
-		<item value="Salesforce_VDB" key="VDB JNDI Name:"/>
-		<item value="8080" key="Web Server Port:"/>
+		<item value="{REPLACE_WITH_VDB_JNDI_NAME}" key="VDB JNDI Name:"/>
 		<item value="/tmp/" key="WAR File Save Location:"/>
-		<item value="Salesforce_VDB" key="Context Name:"/>
+		<item value="8080" key="Web Server Port:"/>
+		<item value="AllCustomer_VDB" key="Context Name:"/>
 		<item value="" key="Realm:"/>
 		<item value="" key="Username:"/>
 		<item value="datavirt" key="Web Server Host:"/>
 		<item value="" key="Role:"/>
-		<item value="http://teiid.org" key="Target namespace:"/>
 		<item value="" key="Password:"/>
+		<item value="http://teiid.org" key="Target namespace:"/>
 	</section>
 	<section name="org.teiid.designer.runtime.ui.connection.CreateDataSourceWizard">
 	</section>

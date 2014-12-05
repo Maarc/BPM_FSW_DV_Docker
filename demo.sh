@@ -119,10 +119,10 @@ function build_image {
     popd
 
     echo "Building Client-Jars for Salesforce WebService Call"
-    pushd Salesforce_WS/ClientClasses/Input > /dev/null
+    pushd WebService/ClientClasses/Input > /dev/null
     ant
     popd
-    pushd Salesforce_WS/ClientClasses/Output > /dev/null
+    pushd WebService/ClientClasses/Output > /dev/null
     ant
     popd
   fi
