@@ -6,7 +6,7 @@ MAINTAINER psteiner <psteiner@redhat.com>
 
 USER root
 
-RUN yum -y install libcanberra-gtk2 PackageKit-gtk-module java-1.7.0-openjdk-devel
+RUN yum -y install libcanberra-gtk2 PackageKit-gtk-module java-1.7.0-openjdk-devel firefox
 RUN mkdir /tmp/.X11-unix
 RUN mkdir /tmp/workspace
 

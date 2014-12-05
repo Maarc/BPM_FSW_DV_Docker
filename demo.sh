@@ -241,7 +241,7 @@ start)
     if [ ! $( docker ps -a | grep fsw | wc -l ) -gt 0 ]; then
       # Create a new FSW Container
       echo "Starting ${DOCKER_IMAGE["HEISE_FSW:IMAGE_NAME"]}"
-      docker run -P -h fsw --name fsw -d ${DOCKER_IMAGE["HEISE_FSW:IMAGE_NAME"]}
+      docker run -p ${DOCKER_IMAGE["HEISE_FSW:HTTP_PORT"]}:8080 -p ${DOCKER_IMAGE["HEISE_FSW:ADMIN_PORT"]}:9990 -h fsw --name fsw -d ${DOCKER_IMAGE["HEISE_FSW:IMAGE_NAME"]}
     else
       # Start the existing container
       echo "Re-Starting ${DOCKER_IMAGE["HEISE_FSW:IMAGE_NAME"]}"
@@ -281,7 +281,7 @@ start)
 	  echo "Starting ${DOCKER_IMAGE["HEISE_DV:IMAGE_NAME"]}"
       WORKSPACE=`pwd`
       WORKSPACE=$WORKSPACE"/workspace/Docker_Heise_DV"
-      docker run -p 49180:8080 -p 49190:9990 --name datavirt -h datavirt --link postgres:postgres -v $WORKSPACE:/tmp/workspace -d ${DOCKER_IMAGE["HEISE_DV:IMAGE_NAME"]}
+      docker run -p ${DOCKER_IMAGE["HEISE_DV:HTTP_PORT"]}:8080 -p ${DOCKER_IMAGE["HEISE_DV:ADMIN_PORT"]}:9990 --name datavirt -h datavirt --link postgres:postgres -v $WORKSPACE:/tmp/workspace -d ${DOCKER_IMAGE["HEISE_DV:IMAGE_NAME"]}
 
 	  echo "Starting ${DOCKER_IMAGE["BPM_JBDS:IMAGE_NAME"]}"
       WORKSPACE=`pwd`
