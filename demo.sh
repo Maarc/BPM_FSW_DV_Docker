@@ -62,6 +62,8 @@ function sanity_check {
     echo "ERROR: ${IMAGE}_Image/${DOCKER_IMAGE["${IMAGE}:ZIP"]} not found"
     echo "Please put download ${IMAGE} from ${DOCKER_IMAGE["${IMAGE}:URL"]} and place it into ${IMAGE}_Image"
     exit 1
+  else
+    chmod 777 ${IMAGE}_Image/${DOCKER_IMAGE["${IMAGE}:ZIP"]}
   fi
 }
 
