@@ -280,12 +280,12 @@ start)
      ;;
 
     bpm_jbds)
-	  echo "Starting ${DOCKER_IMAGE["HEISE_DV:IMAGE_NAME"]}"
+	    echo "Starting ${DOCKER_IMAGE["HEISE_DV:IMAGE_NAME"]}"
       WORKSPACE=`pwd`
       WORKSPACE=$WORKSPACE"/workspace/Docker_Heise_DV"
       docker run -p ${DOCKER_IMAGE["HEISE_DV:HTTP_PORT"]}:8080 -p ${DOCKER_IMAGE["HEISE_DV:ADMIN_PORT"]}:9990 --name datavirt -h datavirt --link postgres:postgres -v $WORKSPACE:/tmp/workspace -d ${DOCKER_IMAGE["HEISE_DV:IMAGE_NAME"]}
 
-	  echo "Starting ${DOCKER_IMAGE["BPM_JBDS:IMAGE_NAME"]}"
+	    echo "Starting ${DOCKER_IMAGE["BPM_JBDS:IMAGE_NAME"]}"
       WORKSPACE=`pwd`
       WORKSPACE=$WORKSPACE"/workspace/Docker_Heise_BPM"
       echo "Mapping workspace to <"$WORKSPACE"> to /tmp/workspace"
@@ -296,7 +296,7 @@ start)
 	  echo "Starting ${DOCKER_IMAGE["HEISE_DV:IMAGE_NAME"]}"
       WORKSPACE=`pwd`
       WORKSPACE=$WORKSPACE"/workspace/Docker_Heise_DV"
-      docker run -p 49180:8080 -p ${DOCKER_IMAGE["DV_HEISE:HTTP_PORT"]}:8080 -p ${DOCKER_IMAGE["DV_HEISE:ADMIN_PORT"]}:9990 --name datavirt -h datavirt --link postgres:postgres -v $WORKSPACE:/tmp/workspace -d ${DOCKER_IMAGE["HEISE_DV:IMAGE_NAME"]}
+      docker run -p ${DOCKER_IMAGE["HEISE_DV:HTTP_PORT"]}:8080 -p ${DOCKER_IMAGE["HEISE_DV:ADMIN_PORT"]}:9990 --name datavirt -h datavirt --link postgres:postgres -v $WORKSPACE:/tmp/workspace -d ${DOCKER_IMAGE["HEISE_DV:IMAGE_NAME"]}
 
       echo "Starting ${DOCKER_IMAGE["HEISE_BPM:IMAGE_NAME"]}"
       docker run -p ${DOCKER_IMAGE["HEISE_BPM:HTTP_PORT"]}:8080 -p ${DOCKER_IMAGE["HEISE_BPM:ADMIN_PORT"]}:9990 --link fsw:fsw --link postgres:postgres --link datavirt:datavirt -d ${DOCKER_IMAGE["HEISE_BPM:IMAGE_NAME"]}
