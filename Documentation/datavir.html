@@ -415,9 +415,145 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_starting_the_development_environment">Starting the development environment</h2>
+<h2 id="_prerequisites">Prerequisites</h2>
 <div class="sectionbody">
-
+<div class="sect2">
+<h3 id="_salesforce_com_demo_account">Salesforce.com Demo Account</h3>
+<div class="paragraph">
+<p>In this demo we will use JBoss Data Virtualization to</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>access data from a Postgres database</p>
+</li>
+<li>
+<p>access data from a Salesforce.com account</p>
+</li>
+<li>
+<p>join these two to one virtual database</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The installer for this demo will take care of the creation of the Postgres database, but in order to work with Salesforce.com you will need your companies account for Salesforce.com or a free-of-charge demo account.</p>
+</div>
+<div class="paragraph">
+<p>To register for a demo account please do follow the <a href="https://www.salesforce.com/form/signup/freetrial-sales.jsp">instructions</a> from Salesforce.<br>
+As we will be using Salesforce.com via their API, you need to also register for a <a href="https://success.salesforce.com/answers?id=90630000000glADAAY">security token</a>.</p>
+</div>
+<div class="paragraph">
+<p>Details on how to create the correct datarecords will be covered at a later step in this manual.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dockerhost">Dockerhost</h3>
+<div class="paragraph">
+<p>The entire demo is build on <a href="https://www.docker.com/">Docker</a>. The various elements, like JBoss BPM Suite, JBoss Fuse, Postgres and JBoss Data Virtualization all run in their own container.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./Images/Overview.jpg" alt="Overview">
+</div>
+</div>
+<div class="paragraph">
+<p>Shows an overview on how these Docker images are build on each other. We will cover the details in the relevant sections later in this manual.</p>
+</div>
+<div class="paragraph">
+<p>Please do follow the instructions on how to install Docker on your host, based on the <a href="https://docs.docker.com/installation/">relevant pages</a> from Docker.com</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_maven_ant_jdk">Maven, Ant &amp; JDK</h3>
+<div class="paragraph">
+<p>As our installation procedure will build a few jars for you convenience, please do have the appropriate tools up and running on your Docker host.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_building_the_demo_environment">Building the Demo Environment</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_getting_the_code">Getting the code</h3>
+<div class="paragraph">
+<p>The procedure to build the various requried Docker container has been automated for your convenience, all you need to do is to clone the most current version of the demo from github</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git clone https://github.com/PatrickSteiner/BPM_FSW_DV_Docker.git</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_customizing_the_code">Customizing the code</h3>
+<div class="paragraph">
+<p>JBoss Data Virtualization needs to know your Salesforce.com login and password to be able to retrieve data. To add your credetials to this environment, please open <code>./HEISE_DV_Image/config/standalone.xml</code> in your editor of choice and search for the section</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;resource-adapter id="Salesforce_DS"&gt;
+	&lt;module id="org.jboss.teiid.resource-adapter.salesforce" slot="main"/&gt;
+	&lt;transaction-support&gt;NoTransaction&lt;/transaction-support&gt;
+	&lt;connection-definitions&gt;
+		&lt;connection-definition class-name="org.teiid.resource.adapter.salesforce.SalesForceManagedConnectionFactory" enabled="true" jndi-name="java:/Salesforce_DS" pool-name="Salesforce_DS"&gt;
+			&lt;config-property name="password"&gt;
+				[your password+security-token]
+            &lt;/config-property&gt;
+			&lt;config-property name="username"&gt;
+				[your login]
+            &lt;/config-property&gt;
+		&lt;/connection-definition&gt;
+	&lt;/connection-definitions&gt;
+&lt;/resource-adapter&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Replace <code>[your password+security-token]</code> and <code>[your login]</code> with your personal data.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_providing_the_red_hat_jboss_products">Providing the Red Hat JBoss Products</h3>
+<div class="paragraph">
+<p>I have not included the various JBoss products in the git repository, so it will be your obligation to retrieve them and to place them in their directories.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>jboss-eap-6.1.1.zip</code> into <code>./EAP_Image</code></p>
+</li>
+<li>
+<p><code>jboss-bpms-6.0.3.GA-redhat-1-deployable-eap6.x.zip</code> into <code>./BPM_Image</code></p>
+</li>
+<li>
+<p><code>jboss-fsw-installer-6.0.0.GA-redhat-4.jar</code> into <code>./FSW_Image</code></p>
+</li>
+<li>
+<p><code>jboss-dv-installer-6.0.0.GA-redhat-4.jar`into `DV_Image/software</code></p>
+</li>
+<li>
+<p><code>jbdevstudio-product-universal-7.1.1.GA-v20140314-2145-B688.jar</code> into <code>DV_JBDS_Image/software</code></p>
+</li>
+<li>
+<p><code>jbdevstudio-product-universal-7.1.1.GA-v20140314-2145-B688.jar</code> into <code>BPM_JBDS_Image/software</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_building_the_docker_container">Building the Docker container</h3>
+<div class="paragraph">
+<p>After changing into the <code>BPM_FSW_DV_Docker</code> directory, all you need to do is run the provided script, take a cup of coffee ( make it a big one ) and start</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>./demo.sh build all</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once the creation of the</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -441,7 +577,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-12-07 09:30:40 CET
+Last updated 2014-12-07 16:50:52 CET
 </div>
 </div>
 </body>

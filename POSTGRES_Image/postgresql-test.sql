@@ -31,4 +31,6 @@ CREATE TABLE "customer" (
 );
 
 INSERT INTO "customer" VALUES ('003240000016nU9AAI', 'Patrick', 'Steiner');
+INSERT INTO "customer" VALUES ('00324000001YLBVAA4', 'Rose', 'Gonzales');
+INSERT INTO "customer" VALUES ('00324000001YLBXAA4', 'Jack', 'Rogers');
 
