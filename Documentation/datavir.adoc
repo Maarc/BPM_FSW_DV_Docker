@@ -82,7 +82,117 @@ After changing into the `BPM_FSW_DV_Docker` directory, all you need to do is run
 ./demo.sh build all
 ----
 
-Once the creation of the 
+Once the script has finished, you can verify with `docker images` the status of the created container. You should have at least the following entries in your local image repository
+
+----
+[psteiner@localhost BPM_FSW_DV_Docker]$ docker images
+REPOSITORY                TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+psteiner/bpm_jbds         latest              472eb4d21693        5 minutes ago       3.07 GB
+psteiner/dv_jbds          latest              a77ef429eb2a        10 minutes ago      2.148 GB
+psteiner/heise_datavirt   latest              c813de973667        14 minutes ago      1.075 GB
+psteiner/heise_fsw        latest              a2d613de584f        15 minutes ago      1.813 GB
+psteiner/heise_bpm        latest              ace41f79378c        17 minutes ago      1.916 GB
+psteiner/datavirt         latest              e4649011004b        18 minutes ago      1.072 GB
+psteiner/fsw              latest              f34ea54366bd        22 minutes ago      1.807 GB
+psteiner/bpm              latest              f04c90fd3de9        25 minutes ago      1.396 GB
+psteiner/eap              latest              6cdbce7d918d        27 minutes ago      705.1 MB
+psteiner/postgres         latest              be9d80a000b1        About an hour ago   415.6 MB
+centos                    centos6             70441cac1ed5        4 weeks ago         215.8 MB
+----
+
+== Starting the environment
+
+Once you have completed the previous step, you can run the demo in your own environment. Simply use `./demo.sh start all` to start all images with the required parameter and configurations.
+
+When completed, the script will have started container for JBoss BPM Suite, JBoss Fuse Service Works, JBoss Data Virtualization and a Postgress.
+
+If you want to verify the start, you can do so with `docker ps`. It should show something like
+
+----
+CONTAINER ID        IMAGE                            COMMAND                CREATED             STATUS              PORTS                                                                                               NAMES
+3dc317c9b1ed        psteiner/heise_bpm:latest        "\"/bin/sh -c 'su jb   4 seconds ago       Up 3 seconds        22/tcp, 0.0.0.0:49160->8080/tcp, 0.0.0.0:49170->9990/tcp                                            loving_heisenberg   
+6c8d9dfdd0fb        psteiner/heise_datavirt:latest   "/bin/sh -c /home/jb   5 seconds ago       Up 4 seconds        9999/tcp, 22/tcp, 27017/tcp, 3306/tcp, 5432/tcp, 0.0.0.0:49200->8080/tcp, 0.0.0.0:49210->9990/tcp   datavirt            
+4ee71b4cca5c        psteiner/postgres:latest         "/bin/sh -c $HOME/po   5 seconds ago       Up 4 seconds        0.0.0.0:49165->5432/tcp, 0.0.0.0:49166->80/tcp                                                      postgres            
+d889dd7ae152        psteiner/heise_fsw:latest        "/bin/sh -c '$HOME/f   6 seconds ago       Up 5 seconds        22/tcp, 0.0.0.0:49220->8080/tcp, 0.0.0.0:49230->9990/tcp                                            fsw       
+---- 
+
+Due to the way the demo is started, you can access all relevant web frontends via `localhost`.
+
+[cols="3*", options="header"]
+|===
+|Product
+|Console
+|URL
+
+|JBoss BPM Suite
+|Business Central
+|http://http://localhost:49160/business-central
+
+|JBoss BPM Suite
+|Admin Console
+|http://localhost:49170/console/index.html
+
+|JBoss Data Virtualization
+|Admin Console
+|http://localhost:49210/console/index.html
+|===
+
+For authentication please use the following user-id and password for all places where you need to authenticate
+
+[cols="2*", options="header"]
+|===
+|User-ID
+|Password
+
+|psteiner
+|change12_me
+|===
+
+== What's in the box
+Overall this demo is about a fictional request for a new household insurance. As in reality this process is not a single step, but consists of various tasks which need to be done in a certain order. In our case
+
+ 1. request the data for the object that needs insurance
+ 2. calculate a insurance policy, based on a few rules
+ 3. ask applicant to accept the calculated policy
+ 4. check if this applicant is already known to us
+ 5. ask for his address if he is unknown
+ 6. document everthing for later dashboarding ( Business Activity Monitoring )
+
+To implement these tasks, the demo makes use of various products and feature of the JBoss product family. 
+
+=== Process Management
+The steps described above are orchestrated via the process management capabilities of JBoss BPM Suite.
+
+image::./Images/process_model.png[]
+
+=== Rules Management
+The steps __Calculate tariff__ and __Calculate max/min__ in above process model, are implemented via the Rules Management part of the JBoss BPM Suite. With the aid of rules management, it is possible to
+
+ * break many complex rules into small pieces
+ * make the rules readable and manageable for business people
+
+image::./Images/rules.png[] 
+
+=== Data Virtualization
+As in many real business, our demo lacks a central point of information for customer data - well, ok - in the case of the demo, this was intentional ...
+
+In our case we have two distinct datasources, a Postgress Database and a table from Salesforce.com, which we access via the remote.
+
+For simplicity reasons, the Postgres database only consists of two fields which hold the name of a customer and one for the rather complex Salesforce-ID.
+
+image::./Images/postgres_db.png[]
+
+Salesforce has a very large dataset for contacts, which we do make use of.
+
+image::./Images/salesforce_db.png[] 
+
+JBoss Data Virtualization does join these two datasources, which are based on different technologies and different server and presents it to the business process as one __virtual database__
+
+image::./Images/vdb.png[] 
+
+=== Business Activity Monitoring
+
+== How it's been done
 
 == Creating the VDB - Virtual Database
 

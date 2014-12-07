@@ -551,9 +551,212 @@ As we will be using Salesforce.com via their API, you need to also register for 
 </div>
 </div>
 <div class="paragraph">
-<p>Once the creation of the</p>
+<p>Once the script has finished, you can verify with <code>docker images</code> the status of the created container. You should have at least the following entries in your local image repository</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[psteiner@localhost BPM_FSW_DV_Docker]$ docker images
+REPOSITORY                TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+psteiner/bpm_jbds         latest              472eb4d21693        5 minutes ago       3.07 GB
+psteiner/dv_jbds          latest              a77ef429eb2a        10 minutes ago      2.148 GB
+psteiner/heise_datavirt   latest              c813de973667        14 minutes ago      1.075 GB
+psteiner/heise_fsw        latest              a2d613de584f        15 minutes ago      1.813 GB
+psteiner/heise_bpm        latest              ace41f79378c        17 minutes ago      1.916 GB
+psteiner/datavirt         latest              e4649011004b        18 minutes ago      1.072 GB
+psteiner/fsw              latest              f34ea54366bd        22 minutes ago      1.807 GB
+psteiner/bpm              latest              f04c90fd3de9        25 minutes ago      1.396 GB
+psteiner/eap              latest              6cdbce7d918d        27 minutes ago      705.1 MB
+psteiner/postgres         latest              be9d80a000b1        About an hour ago   415.6 MB
+centos                    centos6             70441cac1ed5        4 weeks ago         215.8 MB</pre>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_starting_the_environment">Starting the environment</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Once you have completed the previous step, you can run the demo in your own environment. Simply use <code>./demo.sh start all</code> to start all images with the required parameter and configurations.</p>
+</div>
+<div class="paragraph">
+<p>When completed, the script will have started container for JBoss BPM Suite, JBoss Fuse Service Works, JBoss Data Virtualization and a Postgress.</p>
+</div>
+<div class="paragraph">
+<p>If you want to verify the start, you can do so with <code>docker ps</code>. It should show something like</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>CONTAINER ID        IMAGE                            COMMAND                CREATED             STATUS              PORTS                                                                                               NAMES
+3dc317c9b1ed        psteiner/heise_bpm:latest        "\"/bin/sh -c 'su jb   4 seconds ago       Up 3 seconds        22/tcp, 0.0.0.0:49160-&gt;8080/tcp, 0.0.0.0:49170-&gt;9990/tcp                                            loving_heisenberg
+6c8d9dfdd0fb        psteiner/heise_datavirt:latest   "/bin/sh -c /home/jb   5 seconds ago       Up 4 seconds        9999/tcp, 22/tcp, 27017/tcp, 3306/tcp, 5432/tcp, 0.0.0.0:49200-&gt;8080/tcp, 0.0.0.0:49210-&gt;9990/tcp   datavirt
+4ee71b4cca5c        psteiner/postgres:latest         "/bin/sh -c $HOME/po   5 seconds ago       Up 4 seconds        0.0.0.0:49165-&gt;5432/tcp, 0.0.0.0:49166-&gt;80/tcp                                                      postgres
+d889dd7ae152        psteiner/heise_fsw:latest        "/bin/sh -c '$HOME/f   6 seconds ago       Up 5 seconds        22/tcp, 0.0.0.0:49220-&gt;8080/tcp, 0.0.0.0:49230-&gt;9990/tcp                                            fsw</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Due to the way the demo is started, you can access all relevant web frontends via <code>localhost</code>.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Product</th>
+<th class="tableblock halign-left valign-top">Console</th>
+<th class="tableblock halign-left valign-top">URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JBoss BPM Suite</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Central</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://http://localhost:49160/business-central" class="bare">http://http://localhost:49160/business-central</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JBoss BPM Suite</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Admin Console</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://localhost:49170/console/index.html" class="bare">http://localhost:49170/console/index.html</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JBoss Data Virtualization</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Admin Console</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://localhost:49210/console/index.html" class="bare">http://localhost:49210/console/index.html</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>For authentication please use the following user-id and password for all places where you need to authenticate</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">User-ID</th>
+<th class="tableblock halign-left valign-top">Password</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">psteiner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">change12_me</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_s_in_the_box">What&#8217;s in the box</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Overall this demo is about a fictional request for a new household insurance. As in reality this process is not a single step, but consists of various tasks which need to be done in a certain order. In our case</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>request the data for the object that needs insurance</p>
+</li>
+<li>
+<p>calculate a insurance policy, based on a few rules</p>
+</li>
+<li>
+<p>ask applicant to accept the calculated policy</p>
+</li>
+<li>
+<p>check if this applicant is already known to us</p>
+</li>
+<li>
+<p>ask for his address if he is unknown</p>
+</li>
+<li>
+<p>document everthing for later dashboarding ( Business Activity Monitoring )</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>To implement these tasks, the demo makes use of various products and feature of the JBoss product family.</p>
+</div>
+<div class="sect2">
+<h3 id="_process_management">Process Management</h3>
+<div class="paragraph">
+<p>The steps described above are orchestrated via the process management capabilities of JBoss BPM Suite.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./Images/process_model.png" alt="process model">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_rules_management">Rules Management</h3>
+<div class="paragraph">
+<p>The steps <em>Calculate tariff</em> and <em>Calculate max/min</em> in above process model, are implemented via the Rules Management part of the JBoss BPM Suite. With the aid of rules management, it is possible to</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>break many complex rules into small pieces</p>
+</li>
+<li>
+<p>make the rules readable and manageable for business people</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./Images/rules.png" alt="rules">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_data_virtualization">Data Virtualization</h3>
+<div class="paragraph">
+<p>As in many real business, our demo lacks a central point of information for customer data - well, ok - in the case of the demo, this was intentional &#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>In our case we have two distinct datasources, a Postgress Database and a table from Salesforce.com, which we access via the remote.</p>
+</div>
+<div class="paragraph">
+<p>For simplicity reasons, the Postgres database only consists of two fields which hold the name of a customer and one for the rather complex Salesforce-ID.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./Images/postgres_db.png" alt="postgres db">
+</div>
+</div>
+<div class="paragraph">
+<p>Salesforce has a very large dataset for contacts, which we do make use of.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./Images/salesforce_db.png" alt="salesforce db">
+</div>
+</div>
+<div class="paragraph">
+<p>JBoss Data Virtualization does join these two datasources, which are based on different technologies and different server and presents it to the business process as one <em>virtual database</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./Images/vdb.png" alt="vdb">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_business_activity_monitoring">Business Activity Monitoring</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_it_s_been_done">How it&#8217;s been done</h2>
+<div class="sectionbody">
+
 </div>
 </div>
 <div class="sect1">
@@ -577,7 +780,7 @@ As we will be using Salesforce.com via their API, you need to also register for 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-12-07 16:50:52 CET
+Last updated 2014-12-07 22:01:11 CET
 </div>
 </div>
 </body>
