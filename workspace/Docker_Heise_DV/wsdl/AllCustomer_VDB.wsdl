@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?><definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://teiid.org" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:schema2="http://www.metamatrix.com/customer_Output" xmlns:schema1="http://www.metamatrix.com/customer_Input" xmlns="http://schemas.xmlsoap.org/wsdl/" name="AllCustomer_VDB" targetNamespace="http://teiid.org">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://teiid.org" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:schema2="http://www.metamatrix.com/customer_Output" xmlns:schema1="http://www.metamatrix.com/customer_Input" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://teiid.org">
+      <xsd:import namespace="http://www.metamatrix.com/customer_Input" schemaLocation="AllCustomer_Input.xsd"/>
+      <xsd:import namespace="http://www.metamatrix.com/customer_Output" schemaLocation="AllCustomer_Output.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="AllCustomer_customer_getcustomer_customer_OutputMsg">
+<documentation>Output message for operation AllCustomer_customer/getcustomer.</documentation>
+    <part element="schema2:customer_Output" name="AllCustomer_customer_getcustomer_customer_OutputMsg">
+    </part>
+  </message>
+  <message name="AllCustomer_customer_getcustomer_customer_InputMsg">
+<documentation>Input message for operation AllCustomer_customer/getcustomer.</documentation>
+    <part element="schema1:customer_Input" name="AllCustomer_customer_getcustomer_customer_InputMsg">
+    </part>
+  </message>
+  <portType name="AllCustomer_customer">
+    <operation name="getcustomer">
+      <input message="tns:AllCustomer_customer_getcustomer_customer_InputMsg">
+    </input>
+      <output message="tns:AllCustomer_customer_getcustomer_customer_OutputMsg">
+    </output>
+    </operation>
+  </portType>
+  <binding name="AllCustomer_customer" type="tns:AllCustomer_customer">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getcustomer">
+      <soap:operation soapAction="getcustomer" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="AllCustomer_VDB">
+    <port binding="tns:AllCustomer_customer" name="AllCustomer_customer">
+      <soap:address location="http://datavirt:8080/AllCustomer_VDB/AllCustomer_customer"/>
+    </port>
+  </service>
+</definitions>

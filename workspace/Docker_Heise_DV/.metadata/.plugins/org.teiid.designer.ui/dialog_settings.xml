@@ -5,7 +5,7 @@
 		<item value="false" key="Procedures"/>
 		<item value="false" key="Indexes"/>
 		<item value="true" key="Foreign Keys"/>
-		<item value="848" key="height"/>
+		<item value="677" key="height"/>
 		<item value="false" key="Unique Only"/>
 		<item value="814" key="width"/>
 		<item value="UNQUALIFIED" key="&lt;Missing message for key &quot;JdbcImportOptionsPage.sourceObjectNamesGroup&quot; in: org.teiid.designer.ui.i18n&gt;"/>

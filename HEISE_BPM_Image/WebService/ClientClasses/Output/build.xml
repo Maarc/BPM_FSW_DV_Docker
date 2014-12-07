@@ -1,6 +1,6 @@
 <project basedir="." default="build" name="buildJAXB-JAR">
 	<target name="init">
-		<property name="wsdl" value="AllCustomer_FDL_Output.xsd"/>
+		<property name="wsdl" value="AllCustomer_Output.xsd"/>
 		<property name="sourceDir" value="jaxb_src"/>
 		<property name="outputDir" value="jaxb_classes"/>
 		<property name="buildDir" value="jaxb_build"/>

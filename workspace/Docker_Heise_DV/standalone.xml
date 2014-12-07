@@ -126,6 +126,14 @@
                         <password>admin</password>
                     </security>
                 </datasource>
+                <datasource jndi-name="java:/PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_Datasource_Postgress_Driver" pool-name="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_Datasource_Postgress_Driver" enabled="true">
+                    <connection-url>jdbc:postgresql://postgres:5432/bamdb</connection-url>
+                    <driver>postgresql-9.3-1101.jdbc41.jar</driver>
+                    <security>
+                        <user-name>bam</user-name>
+                        <password>change12_me</password>
+                    </security>
+                </datasource>
                 <datasource jndi-name="java:/AllCustomer_VDB" pool-name="AllCustomer_VDB" enabled="true">
                     <connection-url>jdbc:teiid:AllCustomer_VDB</connection-url>
                     <driver>teiid</driver>
@@ -134,7 +142,7 @@
                         <password>change12_me</password>
                     </security>
                 </datasource>
-                <datasource jndi-name="java:/OurCustomer_DS" pool-name="OurCustomer_DS" enabled="true">
+                <datasource jndi-name="java:/Postgress_Driver" pool-name="Postgress_Driver" enabled="true">
                     <connection-url>jdbc:postgresql://postgres:5432/bamdb</connection-url>
                     <driver>postgresql-9.3-1101.jdbc41.jar</driver>
                     <security>
@@ -315,11 +323,11 @@
                 <resource-adapter id="mongodb">
                     <module slot="main" id="org.jboss.teiid.resource-adapter.mongodb"/>
                 </resource-adapter>
-                <resource-adapter id="Salesforce_Driver">
+                <resource-adapter id="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_Datasource_Salesforce_DS">
                     <module slot="main" id="org.jboss.teiid.resource-adapter.salesforce"/>
                     <transaction-support>NoTransaction</transaction-support>
                     <connection-definitions>
-                        <connection-definition class-name="org.teiid.resource.adapter.salesforce.SalesForceManagedConnectionFactory" jndi-name="java:/Salesforce_Driver" enabled="true" pool-name="Salesforce_Driver">
+                        <connection-definition class-name="org.teiid.resource.adapter.salesforce.SalesForceManagedConnectionFactory" jndi-name="java:/PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_Datasource_Salesforce_DS" enabled="true" pool-name="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_Datasource_Salesforce_DS">
                             <config-property name="password">
                                 change12_meEvEMMOZo9tDfxNZuyuCvrl7XK
                             </config-property>
@@ -521,11 +529,38 @@
     </socket-binding-group>
 
     <deployments>
-        <deployment name="postgresql-9.3-1101.jdbc41.jar" runtime-name="postgresql-9.3-1101.jdbc41.jar">
-            <content sha1="dfa6c29a6c81094260cd903d40475e84c731cbd9"/>
-        </deployment>
         <deployment name="AllCustomer_VDB.vdb" runtime-name="AllCustomer_VDB.vdb">
-            <content sha1="310e69cfb1e37e9ec02ba5fd43f6540d1e5a4a6b"/>
+            <content sha1="7c01a751ee0e8dfdc80c3ef6e5a7613e87a75cf4"/>
+        </deployment>
+        <deployment name="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_WebService_AllCustomer_WS.vdb" runtime-name="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_WebService_AllCustomer_WS.vdb">
+            <content sha1="2e669225442e64691bf0a99b01ed16c4f91b998d"/>
+        </deployment>
+        <deployment name="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_WebService_AllCustomer_Output.vdb" runtime-name="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_WebService_AllCustomer_Output.vdb">
+            <content sha1="91cfd16135161f6ce161b70ccc4372f0dbbe8b5d"/>
+        </deployment>
+        <deployment name="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_VirtualDatabaseLayer_Salesforce_VBL.vdb" runtime-name="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_VirtualDatabaseLayer_Salesforce_VBL.vdb">
+            <content sha1="63bf6b9272e51efe668abbca30101ec1a3af2268"/>
+        </deployment>
+        <deployment name="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_WebService_AllCustomer_Output_View.vdb" runtime-name="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_WebService_AllCustomer_Output_View.vdb">
+            <content sha1="1f6ba264bd156c0f952dc846e00fb5ae4475d567"/>
+        </deployment>
+        <deployment name="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_VirtualDatabaseLayer_Postgres_VBL.vdb" runtime-name="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_VirtualDatabaseLayer_Postgres_VBL.vdb">
+            <content sha1="6cb538d33c3df3b36ba22bd0eb59da100a5a73f9"/>
+        </deployment>
+        <deployment name="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_WebService_AllCustomer_Input.vdb" runtime-name="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_WebService_AllCustomer_Input.vdb">
+            <content sha1="c31a2d768fd63cd3e073417a8a52d8ef4e052530"/>
+        </deployment>
+        <deployment name="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_Datasource_Salesforce_DS.vdb" runtime-name="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_Datasource_Salesforce_DS.vdb">
+            <content sha1="777212534de4fcb4b5ec902977342143f2cf1828"/>
+        </deployment>
+        <deployment name="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_Datasource_Postgress_Driver.vdb" runtime-name="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_Datasource_Postgress_Driver.vdb">
+            <content sha1="a6cb4ce3d35ad29b06cf4bfb9842f2f355c01f68"/>
+        </deployment>
+        <deployment name="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_FederationDatabaseLayer_AllCustomer.vdb" runtime-name="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_FederationDatabaseLayer_AllCustomer.vdb">
+            <content sha1="1ce620bf9e0461b1e08938835d9dd5b4c109dc9a"/>
+        </deployment>
+        <deployment name="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_project.vdb" runtime-name="PREVIEW_6feef206-510c-43bf-a16b-565afae63cc4_Customer_project.vdb">
+            <content sha1="574e5fbf464c680aa08e626c853f9347d156fad2"/>
         </deployment>
     </deployments>
 </server>

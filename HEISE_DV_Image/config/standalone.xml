@@ -126,7 +126,7 @@
                         <password>admin</password>
                     </security>
                 </datasource>
-                <datasource jndi-name="java:/AllCustomer_VDB" pool-name="AllCustomer_VDB" enabled="true">
+ 				<datasource jndi-name="java:/AllCustomer_VDB" pool-name="AllCustomer_VDB" enabled="true">
                     <connection-url>jdbc:teiid:AllCustomer_VDB</connection-url>
                     <driver>teiid</driver>
                     <security>
@@ -134,7 +134,7 @@
                         <password>change12_me</password>
                     </security>
                 </datasource>
-                <datasource jndi-name="java:/OurCustomer_DS" pool-name="OurCustomer_DS" enabled="true">
+                <datasource jndi-name="java:/Postgress_Driver" pool-name="Postgress_Driver" enabled="true">
                     <connection-url>jdbc:postgresql://postgres:5432/bamdb</connection-url>
                     <driver>postgresql-9.3-1101.jdbc41.jar</driver>
                     <security>
@@ -315,11 +315,11 @@
                 <resource-adapter id="mongodb">
                     <module slot="main" id="org.jboss.teiid.resource-adapter.mongodb"/>
                 </resource-adapter>
-                 <resource-adapter id="Salesforce_Driver">
+                 <resource-adapter id="Salesforce_DS">
                     <module slot="main" id="org.jboss.teiid.resource-adapter.salesforce"/>
                     <transaction-support>NoTransaction</transaction-support>
                     <connection-definitions>
-                        <connection-definition class-name="org.teiid.resource.adapter.salesforce.SalesForceManagedConnectionFactory" jndi-name="java:/Salesforce_Driver" enabled="true" pool-name="Salesforce_Driver">
+                        <connection-definition class-name="org.teiid.resource.adapter.salesforce.SalesForceManagedConnectionFactory" jndi-name="java:/Salesforce_DS" enabled="true" pool-name="Salesforce_DS">
                             <config-property name="password">
                                 change12_meEvEMMOZo9tDfxNZuyuCvrl7XK
                             </config-property>
