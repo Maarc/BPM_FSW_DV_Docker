@@ -5,7 +5,7 @@ This demo has been build to demostration a combination of various Red Hat JBoss 
 
 The scenario covered is the request for a household insurance and is build upon the following services.
 
-(https://raw.githubusercontent.com/PatrickSteiner/BPM_FSW_DV_Docker/master/Documentation/Images/System_Overview.png)
+![](https://raw.githubusercontent.com/PatrickSteiner/BPM_FSW_DV_Docker/master/Documentation/Images/System_Overview.png)
 
 ## Prerequisites
 
