@@ -120,16 +120,18 @@ d889dd7ae152        psteiner/heise_fsw:latest        "/bin/sh -c '$HOME/f   6 se
 
 Due to the way the demo is started, you can access all relevant web frontends via `localhost`.
 
-|Product|Console|URL
-|JBoss BPM Suite|Business Central|http://http://localhost:49160/business-central
-|JBoss BPM Suite|Admin Console|http://localhost:49170/console/index.html
-|JBoss Data Virtualization|Admin Console|http://localhost:49210/console/index.html
+|Product|Console|URL|
+| ------------- |:-------------:| -----:|
+|JBoss BPM Suite|Business Central|http://http://localhost:49160/business-central|
+|JBoss BPM Suite|Admin Console|http://localhost:49170/console/index.html|
+|JBoss Data Virtualization|Admin Console|http://localhost:49210/console/index.html|
 
 
 For authentication please use the following user-id and password for all places where you need to authenticate
 
-|User-ID|Password
-|psteiner|change12_me
+|User-ID|Password|
+|--------|--------|
+|psteiner|change12_me|
 
 ## What's in the box
 Overall this demo is about a fictional request for a new household insurance. As in reality this process is not a single step, but consists of various tasks which need to be done in a certain order. In our case
