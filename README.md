@@ -1,130 +1,217 @@
-# Docker Images
+= Getting JBoss Data Virtualization to run in the Demo
 
-This is a set of Docker images which together form a Red Hat BPM-Suite and Red Hat Fuse ServiceWorks demo environment.
-I personally use this setup whenever I have to present these topics to some audience.
+:Author:    Patrick Steiner
+:Email:     psteiner@redhat.com
+:Date:      07.12.2014
 
-# About the images
+:toc:
 
-The demo requires two Docker-Images (Heise_BPM_Image and Heise_FSW_Image). As you can probably guess Heise_BPM_Image hosts the Red Hat JBoss BPM-Suite and Heise_FSW_Image hosts Red Hat JBoss Fuse ServiceWorks. All required images are built automatically. During the built process the base images (EAP_Image, BPM_Image, and FSW_Image) are built as well. These are plain base Images which can be re-used for your custom demos as well.
+== What it's all about
+This demo has been build to demostration a combination of various Red Hat JBoss products, aimed to have something to demo them and to get an idea on how to achieve an integration.
 
-## Control Script
+The scenario covered is the request for a household insurance and is build upon the following services.
 
-The `demo.sh` control script provides several actions from *building* the images to *running*, and *removing* the images. The following section describes how to use the `demo.sh script.
-
-### demo.sh usage
-
-The `demo.sh` script accepts the following parameters:
-
-- **build** - the build parameter triggers an image build and accepts the following parameters  
-  - **bpm** - build the base image for Red Hat JBoss BPM Suite
-  - **eap** - build the base image for Red Hat JBoss EAP
-  - **fsw** - build the base image for Red Hat JBoss Fuse Service Works
-  - **dv** - build the base image for Red Hat JBoss BPM Suite
-  - **heise\_bpm** - build the heise_bpm image which in turn requires the bpm image (see above), which in turn requires the eap image. 
-  - **heise\_fsw** - build the heise_fsw image which in turn requires the fsw image (see above)
-  - **heise\_dv** - build the heise_dv image which in turn requires the dv image (see above ) 
-  - **all** - build all required images in one go
-- **stop** - the stop parameter tries to stop running images and accepts the following parameters  
-  - **heise\_bpm** - tries to only stop running heise_bpm images 
-  - **heise\_fsw** - tries to only stop running heise_fsw images
-  - **heise\_dv** - tries to only stop running heise_dv images
-  - **all** - tries to stop all images (default)
-- **start** - Creates and runs the fsw and bpms containers and names it accordingly. If an existing fsw container is present, but not running it is started. By default the containers are started in detached mode. If you want to see what is going on you need to add an additional _attached_ parameter.
-  - **attached** - Starts the bpms container attached and removes it after you terminate the jboss process.
-- **remove** - removes images from the docker registry. Needed for rebuilding parts of the demo environment.
-  - **bpm** - remove the bpm image and all intermediary images
-  - **eap** - remove the eap image and all intermediary images
-  - **fsw** - remove the fsw image and all intermediary images
-  - **dv** - remove the fsw image and all intermediary images
-  - **heise\_bpm** - remove the heise_bpm image and all intermediary images 
-  - **heise\_fsw** - remove the heise_fsw image and all intermediary images
-  - **heise\_dv** - remove the heise_dv image and all intermediary images
-- **status** - runs `docker ps`. Can be used to see what instances are running and how the ports are mapped.
+image::./Images/System_Overview.png[]
 
 
-## Heise BPM image
-This image is made out of 3 layers
+== Prerequisites
 
-   1. Red Hat JBoss EAP ( image-name psteiner/eap )
-   2. Red Hat JBoss BPM Suite ( image-name psteiner/bpm )
-   3. WebService consumer deployed into layer 2 ( image-name psteiner/heise_bpm )
+=== Salesforce.com Demo Account
+In this demo we will use JBoss Data Virtualization to
 
-Heise Fuse Service Works image
------------------------------
-This image is made out of 2 layers
+	1. access data from a Postgres database
+	2. access data from a Salesforce.com account
+	3. join these two to one virtual database
 
-   1. Red Hat JBoss Fuse ServiceWorks ( image-name psteiner/fsw )
-   2. WebService provider deployed into layer 1 ( image-name psteiner/heise_fsw )
-
-Heise Data Virtualization image
------------------------------
-This image is made out of 2 layers
-
-   1. Red Hat JBoss Data Virtualization ( image-name psteiner/datavirt )
-   2. Data Virtualization product with custom virtual database(s) ( image-name psteiner/heise_datavirt )
-
-Postgres image
---------------
-This image is not yet used for the demo, but in preparation for so!
-
-It will be used for the Business Activity Monitoring of the demo and
-probably later also for showcasing data virtualization.
-
-Creating the images
-===================
-After successfully cloning this image with `git clone https://github.com/PatrickSteiner/BPM_FSW_Docker.git` you will have one directory per image.
-
-Please download the following Red Hat JBoss products:
-* [Red Hat JBoss EAP](http://www.jboss.org/download-manager/file/jboss-eap-6.1.0.GA.zip)
-* [Red Hat JBoss BPM-Suite](https://access.redhat.com/jbossnetwork/restricted/softwareDownload.html?softwareId=30853&product=bpm.suite)
-* [Red Hat JBoss FSW](http://www.jboss.org/download-manager/file/jboss-fsw-6.0.0.GA.zip)
-* [Red Hat JBoss Data Virtualization](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?product=data.services.platform&downloadType=distributions)
+The installer for this demo will take care of the creation of the Postgres database, but in order to work with Salesforce.com you will need your companies account for Salesforce.com or a free-of-charge demo account.
 
 
-Please copy the downloaded products as follows:
-* jboss-eap-6.1.0.GA.zip into the folder `EAP_Image` root folder
-* jboss-bpms-6.0.3.GA-redhat-1-deployable-eap6.x.zip into the folder `BPM_Image` root folder
-* jboss-fsw-installer-6.0.0.GA-redhat-4.jar into the `FSW_Image` root folder
-* jboss-dv-installer-6.0.0.GA-redhat-4.jar into the `DV_Image/software` folder
+To register for a demo account please do follow the https://www.salesforce.com/form/signup/freetrial-sales.jsp[instructions] from Salesforce. +
+As we will be using Salesforce.com via their API, you need to also register for a https://success.salesforce.com/answers?id=90630000000glADAAY[security token].
 
-After the files are downloaded, run `demo.sh build all` 
+Details on how to create the correct datarecords will be covered at a later step in this manual.
 
-If you prefer to see all this in a video, here we go:
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/9aKRDL1sWuM/0.jpg)](https://www.youtube.com/watch?v=9aKRDL1sWuM)
+=== Dockerhost
+The entire demo is build on https://www.docker.com/[Docker]. The various elements, like JBoss BPM Suite, JBoss Fuse, Postgres and JBoss Data Virtualization all run in their own container.
 
-Starting the images
-===================
+image::./Images/Overview.png[]
 
-As the two images depend on each other, via a Link, we need to run them in the right order. For this purpose you can simply run `demo.sh start` which will run the demo in detached mode on fixed ports (49160) or you can run `demo.sh start attached` which will run the fsw image in detached mode and the bpms image in attached mode and remove the image after the jboss process is terminated. 
+Shows an overview on how these Docker images are build on each other. We will cover the details in the relevant sections later in this manual.
 
-Running the demo
-==================
+Please do follow the instructions on how to install Docker on your host, based on the https://docs.docker.com/installation/[relevant pages] from Docker.com
 
-A first video on how to start and run the environment is here:
+=== Maven, Ant & JDK
+As our installation procedure will build a few jars for you convenience, please do have the appropriate tools up and running on your Docker host.
 
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/aB8e0gcXkUw/0.jpg)](https://www.youtube.com/watch?v=aB8e0gcXkUw)
+== Building the Demo Environment
+
+=== Getting the code
+
+The procedure to build the various requried Docker container has been automated for your convenience, all you need to do is to clone the most current version of the demo from github
+----
+git clone https://github.com/PatrickSteiner/BPM_FSW_DV_Docker.git
+----
+
+=== Customizing the code
+JBoss Data Virtualization needs to know your Salesforce.com login and password to be able to retrieve data. To add your credetials to this environment, please open `./HEISE_DV_Image/config/standalone.xml` in your editor of choice and search for the section
+----
+<resource-adapter id="Salesforce_DS">
+	<module id="org.jboss.teiid.resource-adapter.salesforce" slot="main"/>
+	<transaction-support>NoTransaction</transaction-support>
+	<connection-definitions>
+		<connection-definition class-name="org.teiid.resource.adapter.salesforce.SalesForceManagedConnectionFactory" enabled="true" jndi-name="java:/Salesforce_DS" pool-name="Salesforce_DS">
+			<config-property name="password">
+				[your password+security-token]
+            </config-property>
+			<config-property name="username">
+				[your login]
+            </config-property>
+		</connection-definition>
+	</connection-definitions>
+</resource-adapter>
+----
+Replace `[your password+security-token]` and `[your login]` with your personal data.
+
+=== Providing the Red Hat JBoss Products
+I have not included the various JBoss products in the git repository, so it will be your obligation to retrieve them and to place them in their directories.
+
+	* `jboss-eap-6.1.1.zip` into `./EAP_Image`
+	* `jboss-bpms-6.0.3.GA-redhat-1-deployable-eap6.x.zip` into `./BPM_Image`
+	* `jboss-fsw-installer-6.0.0.GA-redhat-4.jar` into `./FSW_Image`
+	* `jboss-dv-installer-6.0.0.GA-redhat-4.jar`into `DV_Image/software`
+	* `jbdevstudio-product-universal-7.1.1.GA-v20140314-2145-B688.jar` into `DV_JBDS_Image/software`
+	* `jbdevstudio-product-universal-7.1.1.GA-v20140314-2145-B688.jar` into `BPM_JBDS_Image/software`
 
 
-Known issues
-============
+=== Building the Docker container
 
-Starting an image
------------------
- `2014/06/19 20:40:34 unable to remount sys readonly: unable to mount sys as readonly max retries reached`
+After changing into the `BPM_FSW_DV_Docker` directory, all you need to do is run the provided script, take a cup of coffee ( make it a big one ) and start
+----
+./demo.sh build all
+----
 
- This error can be cirumvented by editing `/etc/sysconfig/docker` and replacing 
- ```
- other_args="--exec-driver=lxc"
- ```
- with
- ```
- other_args="--exec-driver=lxc --selinux-enabled"
- ```
+Once the script has finished, you can verify with `docker images` the status of the created container. You should have at least the following entries in your local image repository
 
-Have fun and feel free to comment, come up with ideas for improvement, etc.
+----
+[psteiner@localhost BPM_FSW_DV_Docker]$ docker images
+REPOSITORY                TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+psteiner/bpm_jbds         latest              472eb4d21693        5 minutes ago       3.07 GB
+psteiner/dv_jbds          latest              a77ef429eb2a        10 minutes ago      2.148 GB
+psteiner/heise_datavirt   latest              c813de973667        14 minutes ago      1.075 GB
+psteiner/heise_fsw        latest              a2d613de584f        15 minutes ago      1.813 GB
+psteiner/heise_bpm        latest              ace41f79378c        17 minutes ago      1.916 GB
+psteiner/datavirt         latest              e4649011004b        18 minutes ago      1.072 GB
+psteiner/fsw              latest              f34ea54366bd        22 minutes ago      1.807 GB
+psteiner/bpm              latest              f04c90fd3de9        25 minutes ago      1.396 GB
+psteiner/eap              latest              6cdbce7d918d        27 minutes ago      705.1 MB
+psteiner/postgres         latest              be9d80a000b1        About an hour ago   415.6 MB
+centos                    centos6             70441cac1ed5        4 weeks ago         215.8 MB
+----
 
-Patrick and Buddy
+== Starting the environment
 
-psteiner at redhat.com
-buddy at redhat.com
+Once you have completed the previous step, you can run the demo in your own environment. Simply use `./demo.sh start all` to start all images with the required parameter and configurations.
 
+When completed, the script will have started container for JBoss BPM Suite, JBoss Fuse Service Works, JBoss Data Virtualization and a Postgress.
+
+If you want to verify the start, you can do so with `docker ps`. It should show something like
+
+----
+CONTAINER ID        IMAGE                            COMMAND                CREATED             STATUS              PORTS                                                                                               NAMES
+3dc317c9b1ed        psteiner/heise_bpm:latest        "\"/bin/sh -c 'su jb   4 seconds ago       Up 3 seconds        22/tcp, 0.0.0.0:49160->8080/tcp, 0.0.0.0:49170->9990/tcp                                            loving_heisenberg
+6c8d9dfdd0fb        psteiner/heise_datavirt:latest   "/bin/sh -c /home/jb   5 seconds ago       Up 4 seconds        9999/tcp, 22/tcp, 27017/tcp, 3306/tcp, 5432/tcp, 0.0.0.0:49200->8080/tcp, 0.0.0.0:49210->9990/tcp   datavirt
+4ee71b4cca5c        psteiner/postgres:latest         "/bin/sh -c $HOME/po   5 seconds ago       Up 4 seconds        0.0.0.0:49165->5432/tcp, 0.0.0.0:49166->80/tcp                                                      postgres
+d889dd7ae152        psteiner/heise_fsw:latest        "/bin/sh -c '$HOME/f   6 seconds ago       Up 5 seconds        22/tcp, 0.0.0.0:49220->8080/tcp, 0.0.0.0:49230->9990/tcp                                            fsw
+----
+
+Due to the way the demo is started, you can access all relevant web frontends via `localhost`.
+
+[cols="3*", options="header"]
+|===
+|Product
+|Console
+|URL
+
+|JBoss BPM Suite
+|Business Central
+|http://http://localhost:49160/business-central
+
+|JBoss BPM Suite
+|Admin Console
+|http://localhost:49170/console/index.html
+
+|JBoss Data Virtualization
+|Admin Console
+|http://localhost:49210/console/index.html
+|===
+
+For authentication please use the following user-id and password for all places where you need to authenticate
+
+[cols="2*", options="header"]
+|===
+|User-ID
+|Password
+
+|psteiner
+|change12_me
+|===
+
+== What's in the box
+Overall this demo is about a fictional request for a new household insurance. As in reality this process is not a single step, but consists of various tasks which need to be done in a certain order. In our case
+
+ 1. request the data for the object that needs insurance
+ 2. calculate a insurance policy, based on a few rules
+ 3. ask applicant to accept the calculated policy
+ 4. check if this applicant is already known to us
+ 5. ask for his address if he is unknown
+ 6. document everthing for later dashboarding ( Business Activity Monitoring )
+
+To implement these tasks, the demo makes use of various products and feature of the JBoss product family.
+
+=== Process Management
+The steps described above are orchestrated via the process management capabilities of JBoss BPM Suite.
+
+image::./Images/process_model.png[]
+
+=== Rules Management
+The steps __Calculate tariff__ and __Calculate max/min__ in above process model, are implemented via the Rules Management part of the JBoss BPM Suite. With the aid of rules management, it is possible to
+
+ * break many complex rules into small pieces
+ * make the rules readable and manageable for business people
+
+image::./Images/rules.png[]
+
+=== Data Virtualization
+As in many real business, our demo lacks a central point of information for customer data - well, ok - in the case of the demo, this was intentional ...
+
+In our case we have two distinct datasources, a Postgress Database and a table from Salesforce.com, which we access via the remote.
+
+For simplicity reasons, the Postgres database only consists of two fields which hold the name of a customer and one for the rather complex Salesforce-ID.
+
+image::./Images/postgres_db.png[]
+
+Salesforce has a very large dataset for contacts, which we do make use of.
+
+image::./Images/salesforce_db.png[]
+
+JBoss Data Virtualization does join these two datasources, which are based on different technologies and different server and presents it to the business process as one __virtual database__
+
+image::./Images/vdb.png[]
+
+=== Business Activity Monitoring
+For many users of process management systems, it is of high importance to be able to see what has happened. In our case this would be monitoring things like
+
+ * how many contracts have been signed
+ * how much money did we earny
+ * which contracts sold how good/bad
+ * ...
+
+image::./Images/bam.png[]
+
+== How it's been done
+
+== Creating the VDB - Virtual Database
+
+== Creating a WebService
+
+== How to add it all to the demo
