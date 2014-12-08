@@ -3,6 +3,11 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
+# Directories
+jaxb_build
+jaxb_classes
+jaxb_src
+
 # Package Files #
 jboss-bpms-6.0.2.GA-redhat-5-deployable-eap6.x.zip
 jboss-bpms-6.0.3.GA-redhat-1-deployable-eap6.x.zip
@@ -11,6 +16,7 @@ jboss-eap-6.1.1.zip
 jboss-eap-6.3.0.Beta.zip
 jboss-dv-installer-6.0.0.GA-redhat-4.jar
 jbdevstudio-product-universal-7.1.1.GA-v20140314-2145-B688.jar
+jboss-fsw-installer-6.0.0.GA-redhat-4.jar
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
