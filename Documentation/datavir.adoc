@@ -6,10 +6,18 @@
 
 :toc:
 
+== What it's all about
+This demo has been build to demostration a combination of various Red Hat JBoss products, aimed to have something to demo them and to get an idea on how to achieve an integration.
+
+The scenario covered is the request for a household insurance and is build upon the following services.
+
+image::./Images/System_Overview.png[]
+
+
 == Prerequisites
 
 === Salesforce.com Demo Account
-In this demo we will use JBoss Data Virtualization to 
+In this demo we will use JBoss Data Virtualization to
 
 	1. access data from a Postgres database
 	2. access data from a Salesforce.com account
@@ -19,14 +27,14 @@ The installer for this demo will take care of the creation of the Postgres datab
 
 
 To register for a demo account please do follow the https://www.salesforce.com/form/signup/freetrial-sales.jsp[instructions] from Salesforce. +
-As we will be using Salesforce.com via their API, you need to also register for a https://success.salesforce.com/answers?id=90630000000glADAAY[security token]. 
+As we will be using Salesforce.com via their API, you need to also register for a https://success.salesforce.com/answers?id=90630000000glADAAY[security token].
 
 Details on how to create the correct datarecords will be covered at a later step in this manual.
 
 === Dockerhost
-The entire demo is build on https://www.docker.com/[Docker]. The various elements, like JBoss BPM Suite, JBoss Fuse, Postgres and JBoss Data Virtualization all run in their own container. 
+The entire demo is build on https://www.docker.com/[Docker]. The various elements, like JBoss BPM Suite, JBoss Fuse, Postgres and JBoss Data Virtualization all run in their own container.
 
-image::./Images/Overview.jpg[]
+image::./Images/Overview.png[]
 
 Shows an overview on how these Docker images are build on each other. We will cover the details in the relevant sections later in this manual.
 
@@ -41,7 +49,7 @@ As our installation procedure will build a few jars for you convenience, please 
 
 The procedure to build the various requried Docker container has been automated for your convenience, all you need to do is to clone the most current version of the demo from github
 ----
-git clone https://github.com/PatrickSteiner/BPM_FSW_DV_Docker.git 
+git clone https://github.com/PatrickSteiner/BPM_FSW_DV_Docker.git
 ----
 
 === Customizing the code
@@ -53,10 +61,10 @@ JBoss Data Virtualization needs to know your Salesforce.com login and password t
 	<connection-definitions>
 		<connection-definition class-name="org.teiid.resource.adapter.salesforce.SalesForceManagedConnectionFactory" enabled="true" jndi-name="java:/Salesforce_DS" pool-name="Salesforce_DS">
 			<config-property name="password">
-				[your password+security-token] 
+				[your password+security-token]
             </config-property>
 			<config-property name="username">
-				[your login]				   
+				[your login]
             </config-property>
 		</connection-definition>
 	</connection-definitions>
@@ -72,7 +80,7 @@ I have not included the various JBoss products in the git repository, so it will
 	* `jboss-fsw-installer-6.0.0.GA-redhat-4.jar` into `./FSW_Image`
 	* `jboss-dv-installer-6.0.0.GA-redhat-4.jar`into `DV_Image/software`
 	* `jbdevstudio-product-universal-7.1.1.GA-v20140314-2145-B688.jar` into `DV_JBDS_Image/software`
-	* `jbdevstudio-product-universal-7.1.1.GA-v20140314-2145-B688.jar` into `BPM_JBDS_Image/software`	
+	* `jbdevstudio-product-universal-7.1.1.GA-v20140314-2145-B688.jar` into `BPM_JBDS_Image/software`
 
 
 === Building the Docker container
@@ -110,11 +118,11 @@ If you want to verify the start, you can do so with `docker ps`. It should show 
 
 ----
 CONTAINER ID        IMAGE                            COMMAND                CREATED             STATUS              PORTS                                                                                               NAMES
-3dc317c9b1ed        psteiner/heise_bpm:latest        "\"/bin/sh -c 'su jb   4 seconds ago       Up 3 seconds        22/tcp, 0.0.0.0:49160->8080/tcp, 0.0.0.0:49170->9990/tcp                                            loving_heisenberg   
-6c8d9dfdd0fb        psteiner/heise_datavirt:latest   "/bin/sh -c /home/jb   5 seconds ago       Up 4 seconds        9999/tcp, 22/tcp, 27017/tcp, 3306/tcp, 5432/tcp, 0.0.0.0:49200->8080/tcp, 0.0.0.0:49210->9990/tcp   datavirt            
-4ee71b4cca5c        psteiner/postgres:latest         "/bin/sh -c $HOME/po   5 seconds ago       Up 4 seconds        0.0.0.0:49165->5432/tcp, 0.0.0.0:49166->80/tcp                                                      postgres            
-d889dd7ae152        psteiner/heise_fsw:latest        "/bin/sh -c '$HOME/f   6 seconds ago       Up 5 seconds        22/tcp, 0.0.0.0:49220->8080/tcp, 0.0.0.0:49230->9990/tcp                                            fsw       
----- 
+3dc317c9b1ed        psteiner/heise_bpm:latest        "\"/bin/sh -c 'su jb   4 seconds ago       Up 3 seconds        22/tcp, 0.0.0.0:49160->8080/tcp, 0.0.0.0:49170->9990/tcp                                            loving_heisenberg
+6c8d9dfdd0fb        psteiner/heise_datavirt:latest   "/bin/sh -c /home/jb   5 seconds ago       Up 4 seconds        9999/tcp, 22/tcp, 27017/tcp, 3306/tcp, 5432/tcp, 0.0.0.0:49200->8080/tcp, 0.0.0.0:49210->9990/tcp   datavirt
+4ee71b4cca5c        psteiner/postgres:latest         "/bin/sh -c $HOME/po   5 seconds ago       Up 4 seconds        0.0.0.0:49165->5432/tcp, 0.0.0.0:49166->80/tcp                                                      postgres
+d889dd7ae152        psteiner/heise_fsw:latest        "/bin/sh -c '$HOME/f   6 seconds ago       Up 5 seconds        22/tcp, 0.0.0.0:49220->8080/tcp, 0.0.0.0:49230->9990/tcp                                            fsw
+----
 
 Due to the way the demo is started, you can access all relevant web frontends via `localhost`.
 
@@ -158,7 +166,7 @@ Overall this demo is about a fictional request for a new household insurance. As
  5. ask for his address if he is unknown
  6. document everthing for later dashboarding ( Business Activity Monitoring )
 
-To implement these tasks, the demo makes use of various products and feature of the JBoss product family. 
+To implement these tasks, the demo makes use of various products and feature of the JBoss product family.
 
 === Process Management
 The steps described above are orchestrated via the process management capabilities of JBoss BPM Suite.
@@ -171,7 +179,7 @@ The steps __Calculate tariff__ and __Calculate max/min__ in above process model,
  * break many complex rules into small pieces
  * make the rules readable and manageable for business people
 
-image::./Images/rules.png[] 
+image::./Images/rules.png[]
 
 === Data Virtualization
 As in many real business, our demo lacks a central point of information for customer data - well, ok - in the case of the demo, this was intentional ...
@@ -184,13 +192,21 @@ image::./Images/postgres_db.png[]
 
 Salesforce has a very large dataset for contacts, which we do make use of.
 
-image::./Images/salesforce_db.png[] 
+image::./Images/salesforce_db.png[]
 
 JBoss Data Virtualization does join these two datasources, which are based on different technologies and different server and presents it to the business process as one __virtual database__
 
-image::./Images/vdb.png[] 
+image::./Images/vdb.png[]
 
 === Business Activity Monitoring
+For many users of process management systems, it is of high importance to be able to see what has happened. In our case this would be monitoring things like
+
+ * how many contracts have been signed
+ * how much money did we earny
+ * which contracts sold how good/bad
+ * ...
+
+image::./Images/bam.png[]
 
 == How it's been done
 
