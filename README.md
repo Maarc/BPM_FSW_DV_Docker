@@ -27,7 +27,6 @@ Details on how to create the correct datarecords will be covered at a later step
 ### Dockerhost
 The entire demo is build on [Docker](https://www.docker.com). The various elements, like JBoss BPM Suite, JBoss Fuse, Postgres and JBoss Data Virtualization all run in their own container.
 
-
 ![](https://raw.githubusercontent.com/PatrickSteiner/BPM_FSW_DV_Docker/master/Documentation/Images/Overview.png)
 
 Shows an overview on how these Docker images are build on each other. We will cover the details in the relevant sections later in this manual.
@@ -42,13 +41,14 @@ As our installation procedure will build a few jars for you convenience, please 
 ### Getting the code
 
 The procedure to build the various requried Docker container has been automated for your convenience, all you need to do is to clone the most current version of the demo from github
-----
+
+```
 git clone https://github.com/PatrickSteiner/BPM_FSW_DV_Docker.git
-----
+```
 
 ### Customizing the code
 JBoss Data Virtualization needs to know your Salesforce.com login and password to be able to retrieve data. To add your credetials to this environment, please open `./HEISE_DV_Image/config/standalone.xml` in your editor of choice and search for the section
-----
+```
 <resource-adapter id="Salesforce_DS">
 	<module id="org.jboss.teiid.resource-adapter.salesforce" slot="main"/>
 	<transaction-support>NoTransaction</transaction-support>
@@ -63,7 +63,7 @@ JBoss Data Virtualization needs to know your Salesforce.com login and password t
 		</connection-definition>
 	</connection-definitions>
 </resource-adapter>
-----
+```
 Replace `[your password+security-token]` and `[your login]` with your personal data.
 
 ### Providing the Red Hat JBoss Products
@@ -80,13 +80,13 @@ I have not included the various JBoss products in the git repository, so it will
 ### Building the Docker container
 
 After changing into the `BPM_FSW_DV_Docker` directory, all you need to do is run the provided script, take a cup of coffee ( make it a big one ) and start
-----
+```
 ./demo.sh build all
-----
+```
 
 Once the script has finished, you can verify with `docker images` the status of the created container. You should have at least the following entries in your local image repository
 
-----
+```
 [psteiner@localhost BPM_FSW_DV_Docker]$ docker images
 REPOSITORY                TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
 psteiner/bpm_jbds         latest              472eb4d21693        5 minutes ago       3.07 GB
@@ -100,7 +100,7 @@ psteiner/bpm              latest              f04c90fd3de9        25 minutes ago
 psteiner/eap              latest              6cdbce7d918d        27 minutes ago      705.1 MB
 psteiner/postgres         latest              be9d80a000b1        About an hour ago   415.6 MB
 centos                    centos6             70441cac1ed5        4 weeks ago         215.8 MB
-----
+```
 
 ## Starting the environment
 
@@ -110,13 +110,13 @@ When completed, the script will have started container for JBoss BPM Suite, JBos
 
 If you want to verify the start, you can do so with `docker ps`. It should show something like
 
-----
+```
 CONTAINER ID        IMAGE                            COMMAND                CREATED             STATUS              PORTS                                                                                               NAMES
 3dc317c9b1ed        psteiner/heise_bpm:latest        "\"/bin/sh -c 'su jb   4 seconds ago       Up 3 seconds        22/tcp, 0.0.0.0:49160->8080/tcp, 0.0.0.0:49170->9990/tcp                                            loving_heisenberg
 6c8d9dfdd0fb        psteiner/heise_datavirt:latest   "/bin/sh -c /home/jb   5 seconds ago       Up 4 seconds        9999/tcp, 22/tcp, 27017/tcp, 3306/tcp, 5432/tcp, 0.0.0.0:49200->8080/tcp, 0.0.0.0:49210->9990/tcp   datavirt
 4ee71b4cca5c        psteiner/postgres:latest         "/bin/sh -c $HOME/po   5 seconds ago       Up 4 seconds        0.0.0.0:49165->5432/tcp, 0.0.0.0:49166->80/tcp                                                      postgres
 d889dd7ae152        psteiner/heise_fsw:latest        "/bin/sh -c '$HOME/f   6 seconds ago       Up 5 seconds        22/tcp, 0.0.0.0:49220->8080/tcp, 0.0.0.0:49230->9990/tcp                                            fsw
-----
+```
 
 Due to the way the demo is started, you can access all relevant web frontends via `localhost`.
 
