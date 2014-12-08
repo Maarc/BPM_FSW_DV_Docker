@@ -19,16 +19,16 @@ In this demo we will use JBoss Data Virtualization to
 The installer for this demo will take care of the creation of the Postgres database, but in order to work with Salesforce.com you will need your companies account for Salesforce.com or a free-of-charge demo account.
 
 
-To register for a demo account please do follow the https://www.salesforce.com/form/signup/freetrial-sales.jsp[instructions] from Salesforce. +
-As we will be using Salesforce.com via their API, you need to also register for a https://success.salesforce.com/answers?id=90630000000glADAAY[security token].
+To register for a demo account please do follow the [instructions](https://www.salesforce.com/form/signup/freetrial-sales.jsp) from Salesforce. +
+As we will be using Salesforce.com via their API, you need to also register for a [security token](https://success.salesforce.com/answers?id=90630000000glADAAY[security token]).
 
 Details on how to create the correct datarecords will be covered at a later step in this manual.
 
 ### Dockerhost
-The entire demo is build on https://www.docker.com/[Docker]. The various elements, like JBoss BPM Suite, JBoss Fuse, Postgres and JBoss Data Virtualization all run in their own container.
+The entire demo is build on [Docker](https://www.docker.com). The various elements, like JBoss BPM Suite, JBoss Fuse, Postgres and JBoss Data Virtualization all run in their own container.
 
 
-(https://raw.githubusercontent.com/PatrickSteiner/BPM_FSW_DV_Docker/master/Documentation/Images/Overview.png)
+![](https://raw.githubusercontent.com/PatrickSteiner/BPM_FSW_DV_Docker/master/Documentation/Images/Overview.png)
 
 Shows an overview on how these Docker images are build on each other. We will cover the details in the relevant sections later in this manual.
 
@@ -165,7 +165,7 @@ To implement these tasks, the demo makes use of various products and feature of 
 ### Process Management
 The steps described above are orchestrated via the process management capabilities of JBoss BPM Suite.
 
-(https://raw.githubusercontent.com/PatrickSteiner/BPM_FSW_DV_Docker/master/Documentation/Images/process_model.png)
+![](https://raw.githubusercontent.com/PatrickSteiner/BPM_FSW_DV_Docker/master/Documentation/Images/process_model.png)
 
 ### Rules Management
 The steps __Calculate tariff__ and __Calculate max/min__ in above process model, are implemented via the Rules Management part of the JBoss BPM Suite. With the aid of rules management, it is possible to
@@ -173,7 +173,7 @@ The steps __Calculate tariff__ and __Calculate max/min__ in above process model,
  * break many complex rules into small pieces
  * make the rules readable and manageable for business people
 
-(https://raw.githubusercontent.com/PatrickSteiner/BPM_FSW_DV_Docker/master/Documentation/Images/rules.png)
+![](https://raw.githubusercontent.com/PatrickSteiner/BPM_FSW_DV_Docker/master/Documentation/Images/rules.png)
 
 ### Data Virtualization
 As in many real business, our demo lacks a central point of information for customer data - well, ok - in the case of the demo, this was intentional ...
@@ -182,15 +182,15 @@ In our case we have two distinct datasources, a Postgress Database and a table f
 
 For simplicity reasons, the Postgres database only consists of two fields which hold the name of a customer and one for the rather complex Salesforce-ID.
 
-(https://raw.githubusercontent.com/PatrickSteiner/BPM_FSW_DV_Docker/master/Documentation/Images/postgres_db.png)
+![](https://raw.githubusercontent.com/PatrickSteiner/BPM_FSW_DV_Docker/master/Documentation/Images/postgres_db.png)
 
 Salesforce has a very large dataset for contacts, which we do make use of.
 
-(https://raw.githubusercontent.com/PatrickSteiner/BPM_FSW_DV_Docker/master/Documentation/Images/salesforce_db.png)
+![](https://raw.githubusercontent.com/PatrickSteiner/BPM_FSW_DV_Docker/master/Documentation/Images/salesforce_db.png)
 
 JBoss Data Virtualization does join these two datasources, which are based on different technologies and different server and presents it to the business process as one __virtual database__
 
-(https://raw.githubusercontent.com/PatrickSteiner/BPM_FSW_DV_Docker/master/Documentation/Images/vdb.png)
+![](https://raw.githubusercontent.com/PatrickSteiner/BPM_FSW_DV_Docker/master/Documentation/Images/vdb.png)
 
 ### Business Activity Monitoring
 For many users of process management systems, it is of high importance to be able to see what has happened. In our case this would be monitoring things like
@@ -200,7 +200,7 @@ For many users of process management systems, it is of high importance to be abl
  * which contracts sold how good/bad
  * ...
 
-(https://raw.githubusercontent.com/PatrickSteiner/BPM_FSW_DV_Docker/master/Documentation/Images/bam.png)
+![](https://raw.githubusercontent.com/PatrickSteiner/BPM_FSW_DV_Docker/master/Documentation/Images/bam.png)
 
 ### How it's been done
 
