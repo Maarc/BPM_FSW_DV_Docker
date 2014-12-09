@@ -230,9 +230,94 @@ Now you are ready to start the JBoss Data Virtualization development environment
 ./demo.sh start dv_jbds
 ----
 
-Please do select `/tmp/workspace` as the home directory for your workspace if you want to see how I have do it, or any other directory if you want to start from scratch.
+Please do select `/tmp/workspace` as the home directory for your workspace if you want to see how I have done it, or any other directory if you want to start from scratch.
 
-==== Creating the VDB - Virtual Database
+==== Setting up the development environment from scratch
+If you decided to re-create the virtual database, please apply the following steps to your environment.
+
+After having started the JBoss Developer Studio via
+----
+./demo.sh start dv_jbds
+----
+please select a new directory for your workspace.
+
+image::./Images/2014-12-09_09-30-38.png[]
+
+WARNING: Be aware that files in the container will be lost after stopping the image. If you want to keep them for later steps, please run `./demo.sh commit dv_jbds` from your Docker host system.
+
+Once JBoss Developer Studio has started, please select the `Software/Update` page of the `Welcome to JBoss` page. There you can select and install the additional JBoss Integration Stacks. Please do select at least the `JBoss Data Virtualization Development` capabilities.
+
+Click the `Install` button to proceed.
+
+image::./Images/2014-12-09_09-38-40.png[]
+
+On the following dialog-screens please leave everything as it is and just click the `Next >` buttons.
+
+image::./Images/2014-12-09_09-40-54.png[]
+
+image::./Images/2014-12-09_09-41-17.png[]
+
+Accept the license agreement and start the install process by selecting `Finish`.
+
+image::./Images/2014-12-09_09-41-44.png[]
+
+Lean back, and enjoy the show ...
+
+image::./Images/2014-12-09_09-42-53.png[]
+
+Select `OK` in the dialog warning about unsigned content.
+
+image::./Images/2014-12-09_10-03-46.png[]
+
+Restart JBoss Developer Studio to apply the changes.
+
+image::./Images/2014-12-09_10-06-40.png[]
+
+Change to the `Teiid Designer` Eclipse Perspective.
+
+image::./Images/2014-12-09_10-07-31.png[]
+
+In the `Model Explorer` Eclipse View, click on the highlighted link to define a default Teiid Instance.
+
+image::./Images/2014-12-09_10-09-27.png[]
+
+Select `JBoss Enterprise Application Platform 6.1+` as the server profile and proceed by selecting `Next >`
+
+image::./Images/2014-12-09_10-09-52.png[]
+
+Select the directory hosting the JBoss Data Virtualization server and click on `Finish`.
+
+image::./Images/2014-12-09_10-10-24.png[]
+
+Eclise wants you to select a Secure Master Password, here you can enter whatever your heart desires.
+
+image::./Images/2014-12-09_10-11-01.png[]
+
+The new Master Password could be recovered by adding another password. Here you can proceed to your liking.
+
+image::./Images/2014-12-09_10-11-23.png[]
+
+Now that we have configured the location of the JBoss Data Virtualization server location, the `Servers` Tab of Eclipse shows the new `JBoss EAP 6.1+ Runtime Server`. Please start this server.
+
+image::./Images/2014-12-09_10-11-40.png[]
+
+After the server has started, please double-click an the `JBoss EAP 6.1+ Runtime Server` link in the `Servers` Tab.
+
+image::./Images/2014-12-09_10-11-44.png[]
+
+Go to the `Teiid Instance` view of the servers configuration and  enter the credentials for the `JDBC Connection`.
+
+image::./Images/2014-12-09_10-13-41.png[]
+
+Select `Test JDBC Connection` to verify that you haven't introduced a typo.
+
+image::./Images/2014-12-09_10-15-47.png[]
+
+You are done with configuring and installing the JBoss Data Virtualization Tooling.
+
+WARNING: If you want to persist the installation them for later steps, please run `./demo.sh commit dv_jbds` from your Docker host system.
+
+==== Starting a new project
 Assuming, that you decided to start from scratch, please create a new `Teiid Model Project`
 
 image::./Images/2014-12-06_19-19-17.png[]
@@ -245,35 +330,57 @@ After selecting `Next` on the following screen, you will be presented with a dia
 
 image::./Images/2014-12-06_19-21-25.png[]
 
-MISSING INSTALL OF TOOLS
-
-MISSING CONFIGURATION OF JDV SERVER & PASSWORDS
-
-Now that you have your JDV Server configured, please start it up
+Please make sure, that your JBoss Data Virtualization server is up and running.
 
 image::./Images/2014-12-06_19-21-56.png[]
 
+==== Importing Postgres Data
+As the first step, we want to import the data from our Postgres database and store it as the source modell for later stages. For this you should select the `Datasource` folder and click on `Import` from the context menu.
+
 image::./Images/2014-12-06_20-06-24.png[]
+
+From the dialog, please select JDBC as the source for our model.
 
 image::./Images/2014-12-06_20-06-41.png[]
 
+We will create a new _Connection Profile_
+
 image::./Images/2014-12-06_20-07-08.png[]
+
+From the list of possible profile types, select _PostgreSQL_ and name this new connection _Postgres_Driver_ and proceed to the next screen with `Next >`
 
 image::./Images/2014-12-06_20-07-38.png[]
 
+In this stage, we need to enter the database specific connection parameter. Please do take them from the following screenshot.
+
 image::./Images/2014-12-06_20-08-27.png[]
+
+To verify you didn't introduce any typos, please do `Test Connection`.
+
+Click `Finish` when the test ran successful.
 
 image::./Images/2014-12-06_20-10-24.png[]
 
+Select `Next >` to retrieve the meta data from the Postgres server.
+
 image::./Images/2014-12-06_20-11-05.png[]
 
+In the following screen, leave everything as it is and click on `Next >`
+
 image::./Images/2014-12-06_20-11-23.png[]
+From all the various information identified by the importer, please select the _customer_ database table and select `Next >`
 
 image::./Images/2014-12-06_20-11-49.png[]
 
+Please make sure, that the model will be stored in the correct folder and complete this step by selecting `Finish`
+
 image::./Images/2014-12-06_20-12-26.png[]
 
+The newly imported table structure should be presented to you!
+
 image::./Images/2014-12-06_20-13-14.png[]
+
+==== Importing Salesforce.com Data
 
 image::./Images/2014-12-06_20-13-53.png[]
 
