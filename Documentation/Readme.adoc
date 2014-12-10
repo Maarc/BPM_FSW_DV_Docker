@@ -4,7 +4,7 @@
 :Email:     psteiner@redhat.com
 :Date:      07.12.2014
 
-:toc:
+toc::[]
 
 == What it's all about
 This demo has been build to demostration a combination of various Red Hat JBoss products, aimed to have something to demo them and to get an idea on how to achieve an integration.
