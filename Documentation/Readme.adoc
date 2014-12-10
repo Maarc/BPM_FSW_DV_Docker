@@ -4,6 +4,8 @@
 :Email:     psteiner@redhat.com
 :Date:      07.12.2014
 
+:toc: macro
+
 toc::[]
 
 == What it's all about
